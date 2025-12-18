@@ -1,0 +1,21 @@
+name: Deploy to Firebase Hosting on merge
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # UNCOMMENT THE NEXT 2 LINES IF YOU HAVE A BUILD STEP (React/Vue/Etc)
+      # - run: npm ci && npm run build
+      #   working-directory: ./
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}'
+          channelId: live
+          projectId: uc3m-inf-2025-17831-g14
