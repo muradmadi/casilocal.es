@@ -1,0 +1,44 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Keep all source files
+!*.html
+!*.css
+!*.js
+!*.txt
+!*.xml
+!*.md
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.svg
+!*.ico
+!*.woff
+!*.woff2
+!*.ttf
+!*.eot
+

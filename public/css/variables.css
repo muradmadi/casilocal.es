@@ -1,0 +1,93 @@
+:root {
+    /* Modern Color Palette */
+    --color-primary: #0f2f59; /* Blue - Brand/Headers */
+    --color-primary-dark: #0a1f3a; /* Darker primary for gradients */
+    --color-primary-darker: #0d2547; /* Even darker primary for hovers */
+    --color-secondary: #f29f05; /* Yellow - Accents/Highlights */
+    --color-secondary-dark: #d97d04; /* Darker secondary for gradients */
+    --color-accent: #f27329; /* Peach - Hover/Interactive */
+    --color-orange: #d93d04; /* Orange - Strong CTAs */
+    --color-red: #731702; /* Red - Errors/Strong Emphasis */
+    
+    /* Neutral Colors */
+    --bg-paper: #ffffff; /* Pure white background */
+    --color-white: #ffffff; /* Explicit white (alias for --bg-paper) */
+    --bg-subtle: #fafafa; /* Very light background for sections */
+    --color-gray-light: #f5f5f5; /* Light gray for error states */
+    --color-gray-medium: #666666; /* Medium gray for muted text */
+    --text-ink: #0f2f59; /* Dark blue text */
+    --text-muted: rgba(15, 47, 89, 0.7); /* Muted text */
+    --border-color: rgba(15, 47, 89, 0.1); /* Subtle borders */
+    
+    /* Primary Color Opacity Variants */
+    --color-primary-03: rgba(15, 47, 89, 0.03); /* Primary with 3% opacity */
+    --color-primary-20: rgba(15, 47, 89, 0.2); /* Primary with 20% opacity */
+    
+    /* Accent Color Opacity Variants */
+    --color-accent-05: rgba(242, 115, 41, 0.05); /* Accent with 5% opacity */
+    
+    /* Secondary Color Opacity Variants */
+    --color-secondary-05: rgba(242, 159, 5, 0.05); /* Secondary with 5% opacity */
+    
+    /* Red Color Opacity Variants */
+    --color-red-10: rgba(115, 23, 2, 0.1); /* Red with 10% opacity */
+    
+    /* White Opacity Variants */
+    --color-white-90: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+    --color-white-85: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
+    --color-white-70: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    --color-white-95: rgba(255, 255, 255, 0.95); /* White with 95% opacity */
+    --color-white-10: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+    
+    /* Shadow Colors */
+    --shadow-black-05: rgba(0, 0, 0, 0.05); /* Black shadow 5% */
+    --shadow-black-10: rgba(0, 0, 0, 0.1); /* Black shadow 10% */
+    --shadow-black-15: rgba(0, 0, 0, 0.15); /* Black shadow 15% */
+    --shadow-black-20: rgba(0, 0, 0, 0.2); /* Black shadow 20% */
+    
+    /* Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, #0f2f59 0%, #0a1f3a 100%);
+    --gradient-secondary: linear-gradient(135deg, #f29f05 0%, #d97d04 100%);
+    --gradient-accent: linear-gradient(135deg, #f27329 0%, #d93d04 100%);
+    --gradient-orange: linear-gradient(135deg, #d93d04 0%, #731702 100%);
+    --gradient-red: linear-gradient(135deg, #731702 0%, #4a0f01 100%);
+    
+    /* Mixed Gradients (for variety) */
+    --gradient-warm: linear-gradient(135deg, #d93d04 0%, #f27329 50%, #f29f05 100%);
+    --gradient-sunset: linear-gradient(135deg, #731702 0%, #d93d04 50%, #f27329 100%);
+    --gradient-ocean: linear-gradient(135deg, #0a1f3a 0%, #0f2f59 50%, #0d2547 100%);
+    --gradient-fire: linear-gradient(135deg, #f29f05 0%, #f27329 50%, #d93d04 100%);
+    --gradient-ember: linear-gradient(135deg, #f27329 0%, #d93d04 50%, #731702 100%);
+    
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 1rem; /* 16px */
+    --spacing-lg: 1.5rem; /* 24px */
+    --spacing-xl: 2rem; /* 32px */
+    --spacing-2xl: 3rem; /* 48px */
+    --spacing-3xl: 4rem; /* 64px */
+    
+    /* Font Size Scale */
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-md: 1.125rem; /* 18px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    --font-size-2xl: 2rem; /* 32px */
+    --font-size-3xl: 2.5rem; /* 40px */
+    --font-size-4xl: 3.5rem; /* 56px */
+    --font-size-5xl: 4rem; /* 64px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(15, 47, 89, 0.05);
+    --shadow-md: 0 4px 6px rgba(15, 47, 89, 0.1);
+    --shadow-lg: 0 10px 15px rgba(15, 47, 89, 0.1);
+    --shadow-xl: 0 20px 25px rgba(15, 47, 89, 0.15);
+}
+

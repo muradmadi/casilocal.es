@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CasiLocal - Your essential student guide to Madrid. Discover the best places to eat, drink, study, and explore in Madrid."
+    />
+    <meta
+      name="keywords"
+      content="Madrid, student guide, restaurants, bars, places to visit, Madrid guide, student life Madrid"
+    />
+    <meta name="author" content="CasiLocal" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://casilocal.es/" />
+    <meta property="og:title" content="CasiLocal - Student Guide to Madrid" />
+    <meta
+      property="og:description"
+      content="Your essential student guide to Madrid. Discover the best places to eat, drink, study, and explore."
+    />
+    <meta
+      property="og:image"
+      content="https://casilocal.es/web-app-manifest-192x192.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://casilocal.es/" />
+    <meta
+      property="twitter:title"
+      content="CasiLocal - Student Guide to Madrid"
+    />
+    <meta
+      property="twitter:description"
+      content="Your essential student guide to Madrid. Discover the best places to eat, drink, study, and explore."
+    />
+    <meta
+      property="twitter:image"
+      content="https://casilocal.es/web-app-manifest-192x192.webp"
+    />
+
+    <title>CasiLocal - Student Guide to Madrid</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casilocal.es/">
+
+    <!-- Favicon -->
+    <!-- Modern SVG favicon (preferred) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Fallback ICO -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Multiple PNG sizes for better browser support -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.webp" />
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="/web-app-manifest-192x192.webp"
+    />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f2f59" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="navbar-grid">
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          onclick="document.body.classList.toggle('menu-open')"
+        >
+          <span class="hamburger-icon" aria-hidden="true"><span></span></span>
+        </button>
+        <a href="/" class="brand-link" aria-label="CasiLocal Home">
+          <img
+            src="web-app-manifest-192x192.webp"
+            alt="CasiLocal Icon"
+            class="logo-mobile"
+            width="40"
+            height="40"
+          />
+          <img
+            src="assets/images/logo.webp"
+            alt="CasiLocal"
+            class="logo-desktop"
+            width="180"
+            height="50"
+          />
+        </a>
+        <nav class="navbar-menu" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Eat & Drink ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/eat-drink/" role="menuitem">All Eat & Drink</a>
+                </li>
+                <li role="none">
+                  <a href="/eat-drink/restaurants/" role="menuitem"
+                    >Restaurants</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/eat-drink/bars/" role="menuitem"
+                    >Bars & Nightlife</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Survival ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/survival/" role="menuitem">All Survival</a>
+                </li>
+                <li role="none">
+                  <a href="/survival/study-spots/" role="menuitem"
+                    >Study Spots</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/survival/transportation/" role="menuitem"
+                    >Transportation</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/survival/budget-tips/" role="menuitem"
+                    >Budget Tips</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                City Life ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/city-life/" role="menuitem">All City Life</a>
+                </li>
+                <li role="none">
+                  <a href="/city-life/neighborhoods/" role="menuitem"
+                    >Neighborhoods</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/city-life/events/" role="menuitem">Events</a>
+                </li>
+                <li role="none">
+                  <a href="/city-life/culture/" role="menuitem">Culture</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="navbar-actions">
+            <a href="/map.html" class="button button-primary">The Map</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero hero-home">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <p class="hero-tagline">
+                Live Like a Local, Spend Like a Student
+              </p>
+              <h1>Your Guide to Affordable Madrid</h1>
+              <p class="text-large">
+                Madrid doesn't have to break the bank. Whether you're cramming
+                for exams at a cozy café, hunting for the best menú del día, or
+                looking for free events this weekend—Casi Local is your insider
+                guide to experiencing Madrid on a student budget.
+              </p>
+              <div class="hero-actions">
+                <a href="#collections" class="button button-primary button-hero"
+                  >Start Exploring</a
+                >
+                <a href="/map.html" class="button button-secondary"
+                  >View The Map</a
+                >
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-graphic" aria-hidden="true">
+                <img
+                  src="assets/images/hero-graphic.webp"
+                  alt=""
+                  class="hero-graphic-image"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collections" class="section section-collections">
+        <div class="container">
+          <h2 class="section-title">What You'll Discover</h2>
+          <div class="collection-cards-home">
+            <a
+              href="/eat-drink/"
+              class="collection-card-home collection-card-eat"
+            >
+              <div class="collection-card-visual" aria-hidden="true"></div>
+              <div class="collection-card-content">
+                <h3>Eat Well, Spend Less</h3>
+                <p>
+                  Discover cheap student meals, restaurant discounts, and the
+                  best happy hour deals near Universidad Complutense, Carlos
+                  III, and other Madrid campuses.
+                </p>
+                <span class="collection-card-link">Explore</span>
+              </div>
+            </a>
+            <a
+              href="/survival/"
+              class="collection-card-home collection-card-survival"
+            >
+              <div class="collection-card-visual" aria-hidden="true"></div>
+              <div class="collection-card-content">
+                <h3>Study Spots That Won't Cost You</h3>
+                <p>
+                  From 24/7 cafes with free WiFi to peaceful libraries and
+                  hidden parks, find the perfect place to hit the books without
+                  hitting your wallet.
+                </p>
+                <span class="collection-card-link">Explore</span>
+              </div>
+            </a>
+            <a
+              href="/city-life/"
+              class="collection-card-home collection-card-city"
+            >
+              <div class="collection-card-visual" aria-hidden="true"></div>
+              <div class="collection-card-content">
+                <h3>Free Fun & Student Life</h3>
+                <p>
+                  Connect with language exchange groups, find free entry club
+                  nights, and never miss a free cultural event. Because studying
+                  abroad should be about making memories.
+                </p>
+                <span class="collection-card-link">Explore</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-map-preview">
+        <div class="container">
+          <div class="map-preview-content">
+            <div class="map-preview-text">
+              <h2>Explore Madrid on the Map</h2>
+              <p class="text-large">
+                See all our recommended places in one place. Browse by
+                neighborhood, filter by category, and plan your next adventure.
+              </p>
+              <a href="/map.html" class="button button-primary">View The Map</a>
+            </div>
+            <div class="map-preview-visual">
+              <div class="map-preview-graphic" aria-hidden="true">
+                <img
+                  src="assets/images/map-preview-graphic.webp"
+                  alt=""
+                  class="map-preview-graphic-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo-link" aria-label="CasiLocal Home">
+              <img
+                src="assets/images/logo.webp"
+                alt="CasiLocal"
+                class="footer-logo"
+                width="180"
+                height="50"
+              />
+            </a>
+            <p>
+              Written by students, for students, with real recommendations from
+              people who actually live here (well, almost—hence "casi"). Because
+              the best experiences in Madrid are the ones you can actually
+              afford.
+            </p>
+            <div class="footer-contact">
+              <p>
+                <strong>Contact:</strong>
+                <a href="mailto:hello@casilocal.es">hello@casilocal.es</a>
+              </p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-links-group">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="/eat-drink/">Eat & Drink</a></li>
+                <li><a href="/survival/">Survival</a></li>
+                <li><a href="/city-life/">City Life</a></li>
+              </ul>
+            </div>
+            <div class="footer-links-group">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/map.html">The Map</a></li>
+              </ul>
+            </div>
+            <div class="footer-links-group">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="/terms-of-use.html">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CasiLocal. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+/* COLLECTION-SPECIFIC LAYOUTS AND STYLES */
+
+/* ============================================
+   EAT & DRINK - MASONRY GRID LAYOUT
+   ============================================ */
+
+.eat-drink-hero {
+    padding: var(--spacing-3xl) 0;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--bg-paper) 0%, var(--color-accent-05) 100%);
+    position: relative;
+}
+
+.eat-drink-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-accent) 50%, 
+        transparent 100%);
+    opacity: 0.3;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+    align-items: start;
+}
+
+.masonry-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-place-card {
+    border: 1px solid var(--border-color);
+    background: var(--bg-paper);
+    box-shadow: var(--shadow-sm);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+@media (hover: hover) {
+    .featured-place-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-primary-20);
+        color: inherit;
+    }
+}
+
+.featured-place-card .card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+}
+
+.featured-place-card .card-content {
+    padding: var(--spacing-xl);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-place-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.featured-place-card .place-meta {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.featured-place-card.filtered-out {
+    display: none;
+}
+
+/* ============================================
+   SURVIVAL - DASHBOARD LAYOUT
+   ============================================ */
+
+.survival-hero {
+    padding: var(--spacing-3xl) 0;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--bg-paper) 0%, var(--color-secondary-05) 100%);
+    position: relative;
+}
+
+.survival-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, var(--color-primary-03) 2px, var(--color-primary-03) 4px);
+    pointer-events: none;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.info-box {
+    border: 1px solid var(--border-color);
+    background: var(--bg-paper);
+    box-shadow: var(--shadow-sm);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+    .info-box:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+}
+
+.info-box h4 {
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-md);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-box li {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-box li:last-child {
+    border-bottom: none;
+}
+
+.info-box a {
+    color: var(--text-ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.info-box a:hover {
+    color: var(--color-accent);
+}
+
+/* ============================================
+   CITY LIFE - TIMELINE LAYOUT
+   ============================================ */
+
+.city-life-hero {
+    padding: var(--spacing-3xl) 0;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--bg-paper) 0%, var(--color-primary-03) 100%);
+    position: relative;
+}
+
+.city-life-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-secondary) 50%, 
+        transparent 100%);
+    opacity: 0.3;
+}
+
+.timeline-container {
+    position: relative;
+    padding: var(--spacing-2xl) 0;
+    margin-top: var(--spacing-2xl);
+}
+
+.timeline-line {
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.timeline-event {
+    position: relative;
+    padding-left: 5rem;
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.timeline-event:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+    border: 3px solid var(--bg-paper);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 2px var(--color-primary), 0 2px 4px var(--color-primary-20);
+}
+
+.timeline-event.filtered-out {
+    display: none;
+}
+
+.timeline-event.filter-fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.timeline-event.filter-fade-out {
+    animation: fadeOut 0.3s ease;
+}
+
+.timeline-event .event-date {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-transform: none;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.02em;
+}
+
+.timeline-event .event-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    text-transform: none;
+    color: var(--color-primary);
+}
+
+.timeline-event .event-category {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: none;
+    margin-bottom: var(--spacing-lg);
+    border: none;
+    border-radius: 6px;
+}
+
+.timeline-event .event-description {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-event .event-location {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .timeline-line {
+        left: 1rem;
+    }
+    
+    .timeline-event {
+        padding-left: 3.5rem;
+    }
+    
+    .timeline-event::before {
+        left: 0.5rem;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .dashboard-grid {
+        gap: var(--spacing-lg);
+    }
+}
+

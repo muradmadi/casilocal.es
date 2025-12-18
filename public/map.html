@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore Madrid through the CasiLocal interactive map. Find the best student spots, restaurants, bars, and places to visit in Madrid."
+    />
+    <meta
+      name="keywords"
+      content="Madrid map, Madrid locations, student spots Madrid, Madrid guide map"
+    />
+    <meta name="author" content="CasiLocal" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://casilocal.es/map.html" />
+    <meta property="og:title" content="The Map - CasiLocal" />
+    <meta
+      property="og:description"
+      content="Explore Madrid through our interactive map."
+    />
+    <meta
+      property="og:image"
+      content="https://casilocal.es/web-app-manifest-192x192.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://casilocal.es/map.html" />
+    <meta property="twitter:title" content="The Map - CasiLocal" />
+    <meta
+      property="twitter:description"
+      content="Explore Madrid through our interactive map."
+    />
+    <meta
+      property="twitter:image"
+      content="https://casilocal.es/web-app-manifest-192x192.webp"
+    />
+
+    <title>The Map - CasiLocal</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casilocal.es/map.html">
+
+    <!-- Favicon -->
+    <!-- Modern SVG favicon (preferred) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Fallback ICO -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Multiple PNG sizes for better browser support -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.webp" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="192x192" href="/web-app-manifest-192x192.webp" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f2f59" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="navbar-grid">
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          onclick="document.body.classList.toggle('menu-open')"
+        >
+          <span class="hamburger-icon" aria-hidden="true"><span></span></span>
+        </button>
+        <a href="/" class="brand-link" aria-label="CasiLocal Home">
+          <img
+            src="web-app-manifest-192x192.webp"
+            alt="CasiLocal Icon"
+            class="logo-mobile"
+            width="40"
+            height="40"
+          />
+          <img
+            src="assets/images/logo.webp"
+            alt="CasiLocal"
+            class="logo-desktop"
+            width="180"
+            height="50"
+          />
+        </a>
+        <nav class="navbar-menu" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Eat & Drink ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/eat-drink/" role="menuitem">All Eat & Drink</a>
+                </li>
+                <li role="none">
+                  <a href="/eat-drink/restaurants/" role="menuitem"
+                    >Restaurants</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/eat-drink/bars/" role="menuitem"
+                    >Bars & Nightlife</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Survival ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/survival/" role="menuitem">All Survival</a>
+                </li>
+                <li role="none">
+                  <a href="/survival/study-spots/" role="menuitem"
+                    >Study Spots</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/survival/transportation/" role="menuitem"
+                    >Transportation</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/survival/budget-tips/" role="menuitem"
+                    >Budget Tips</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                City Life ▾
+              </button>
+              <ul class="dropdown" role="menu">
+                <li role="none">
+                  <a href="/city-life/" role="menuitem">All City Life</a>
+                </li>
+                <li role="none">
+                  <a href="/city-life/neighborhoods/" role="menuitem"
+                    >Neighborhoods</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/city-life/events/" role="menuitem">Events</a>
+                </li>
+                <li role="none">
+                  <a href="/city-life/culture/" role="menuitem">Culture</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="navbar-actions">
+            <a href="/map.html" class="button button-primary">The Map</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero hero-map-immersive">
+        <div class="hero-map-backdrop" aria-hidden="true">
+          <div class="hero-map-grid"></div>
+          <div class="hero-map-pin hero-map-pin-1">📍</div>
+          <div class="hero-map-pin hero-map-pin-2">🍽️</div>
+          <div class="hero-map-pin hero-map-pin-3">🍺</div>
+          <div class="hero-map-pin hero-map-pin-4">📚</div>
+          <div class="hero-map-pin hero-map-pin-5">☕</div>
+        </div>
+        <div class="container">
+          <div class="hero-map-content">
+            <span class="hero-map-badge">Interactive Guide</span>
+            <h1>Your Madrid<br><span class="hero-map-highlight">Unlocked</span></h1>
+            <p>
+              Every student-favorite spot, bar, café, and hidden gem—pinned and ready to explore. This is your city now.
+            </p>
+            <div class="hero-map-stats">
+              <div class="hero-map-stat">
+                <span class="hero-map-stat-number">50+</span>
+                <span class="hero-map-stat-label">Locations</span>
+              </div>
+              <div class="hero-map-stat">
+                <span class="hero-map-stat-number">6</span>
+                <span class="hero-map-stat-label">Categories</span>
+              </div>
+              <div class="hero-map-stat">
+                <span class="hero-map-stat-number">∞</span>
+                <span class="hero-map-stat-label">Adventures</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-map-scroll-hint" aria-hidden="true">
+          <span>↓</span>
+        </div>
+      </section>
+
+      <section class="section section-map-instructions">
+        <div class="container">
+          <div class="map-instructions">
+            <h2>How to Use the Map</h2>
+            <div class="instructions-grid">
+              <div class="instruction-item">
+                <div class="instruction-icon" aria-hidden="true">📍</div>
+                <p>
+                  <strong>Filter by category</strong> Use the filter buttons
+                  above the map to show restaurants, bars, study spots, or
+                  cafes. Click markers to see details about each location.
+                </p>
+              </div>
+              <div class="instruction-item">
+                <div class="instruction-icon" aria-hidden="true">🔍</div>
+                <p>
+                  <strong>Navigate easily</strong> Click and drag to move
+                  around, use zoom controls to see more details or get a wider
+                  view. Click any marker to learn more about that spot.
+                </p>
+              </div>
+              <div class="instruction-item">
+                <div class="instruction-icon" aria-hidden="true">🗺️</div>
+                <p>
+                  <strong>Plan your route</strong> Discover neighborhoods and
+                  find the best student-friendly places to eat, study, and
+                  explore throughout Madrid.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-map-main">
+        <div class="container">
+          <div
+            class="map-filters"
+            role="group"
+            aria-label="Filter map locations by category"
+          >
+            <button
+              class="filter-button-map active"
+              data-category="all"
+              aria-label="Show all locations"
+              aria-pressed="true"
+            >
+              All Spots
+            </button>
+            <button
+              class="filter-button-map"
+              data-category="restaurant"
+              aria-label="Show only restaurants"
+              aria-pressed="false"
+            >
+              Restaurants
+            </button>
+            <button
+              class="filter-button-map"
+              data-category="bar"
+              aria-label="Show only bars and nightlife"
+              aria-pressed="false"
+            >
+              Bars & Nightlife
+            </button>
+            <button
+              class="filter-button-map"
+              data-category="study"
+              aria-label="Show only study spots"
+              aria-pressed="false"
+            >
+              Study Spots
+            </button>
+            <button
+              class="filter-button-map"
+              data-category="cafe"
+              aria-label="Show only cafes"
+              aria-pressed="false"
+            >
+              Cafes
+            </button>
+            <button
+              class="filter-button-map"
+              data-category="culture"
+              aria-label="Show only culture and museums"
+              aria-pressed="false"
+            >
+              Culture
+            </button>
+          </div>
+          <div class="map-container">
+            <div
+              id="map"
+              class="map-embed"
+              role="application"
+              aria-label="Interactive map of Madrid showing student-friendly locations"
+            ></div>
+            <div
+              id="map-loading"
+              class="map-loading"
+              aria-live="polite"
+              aria-atomic="true"
+              style="display: none"
+            >
+              <p>Loading map...</p>
+            </div>
+            <div
+              id="map-no-results"
+              class="map-no-results"
+              style="display: none"
+              role="alert"
+            >
+              <p>
+                No locations found for this filter. Try selecting a different
+                category.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo-link" aria-label="CasiLocal Home">
+              <img
+                src="assets/images/logo.webp"
+                alt="CasiLocal"
+                class="footer-logo"
+                width="180"
+                height="50"
+              />
+            </a>
+            <p>
+              Written by students, for students, with real recommendations from
+              people who actually live here (well, almost—hence "casi"). Because
+              the best experiences in Madrid are the ones you can actually
+              afford.
+            </p>
+            <div class="footer-contact">
+              <p>
+                <strong>Contact:</strong>
+                <a href="mailto:hello@casilocal.es">hello@casilocal.es</a>
+              </p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-links-group">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="/eat-drink/">Eat & Drink</a></li>
+                <li><a href="/survival/">Survival</a></li>
+                <li><a href="/city-life/">City Life</a></li>
+              </ul>
+            </div>
+            <div class="footer-links-group">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/map.html">The Map</a></li>
+              </ul>
+            </div>
+            <div class="footer-links-group">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="/terms-of-use.html">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CasiLocal. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Leaflet JavaScript -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="js/menu.js"></script>
+    <script src="js/map.js"></script>
+  </body>
+</html>
