@@ -1,0 +1,10 @@
+---
+import { makePage } from '@keystatic/astro/page';
+import config from '../../../keystatic.config';
+
+export const prerender = false;
+
+const { params } = Astro;
+const page = await makePage(config, params);
+if (page) return page;
+---
