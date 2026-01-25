@@ -158,3 +158,55 @@
     display: none; /* Chrome, Safari and Opera */
   }
 }
+
+#cc-main {
+    --cc-bg: var(--color-paper);
+    --cc-text: var(--color-ink);
+    --cc-btn-primary-bg: var(--color-foundry-900);
+    --cc-btn-primary-text: var(--color-paper);
+    --cc-btn-primary-hover-bg: var(--color-ember);
+    --cc-btn-secondary-bg: transparent;
+    --cc-btn-secondary-text: var(--color-ink);
+    --cc-btn-secondary-hover-bg: var(--color-ink);
+    --cc-btn-secondary-hover-text: var(--color-paper);
+    --cc-cookie-category-block-bg: color-mix(in oklch, var(--color-ink), transparent 95%);
+    --cc-cookie-category-block-bg-hover: color-mix(in oklch, var(--color-ink), transparent 90%);
+    --cc-font-family: var(--font-body);
+}
+
+.cc--darkmode {
+    --cc-bg: var(--color-foundry-900);
+    --cc-text: var(--color-paper);
+    --cc-btn-primary-bg: var(--color-ember);
+    --cc-btn-primary-text: var(--color-foundry-900);
+}
+
+#cc-main .cm {
+    border: 2px solid var(--color-line-heavy);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+}
+
+#cc-main .cm__btn {
+    border-radius: var(--radius-xs);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    font-size: 0.75rem;
+    box-shadow: 2px 2px 0px 0px var(--color-ink);
+    border: 1px solid var(--color-ink);
+    transition: all 0.1s var(--ease-mechanical);
+}
+
+#cc-main .cm__btn:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+#cc-main .cm__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}

@@ -62,5 +62,72 @@ import Footer from '../components/Footer.astro';
         <Masthead />
 		<slot />
         <Footer />
+        <script>
+            import 'vanilla-cookieconsent/dist/cookieconsent.css';
+            import * as CookieConsent from 'vanilla-cookieconsent';
+            
+            CookieConsent.run({
+                guiOptions: {
+                    consentModal: {
+                        layout: 'box',
+                        position: 'bottom right',
+                        equalWeightButtons: true,
+                        flipButtons: false
+                    },
+                    preferencesModal: {
+                        layout: 'box',
+                        position: 'right',
+                        equalWeightButtons: true,
+                        flipButtons: false
+                    }
+                },
+                categories: {
+                    necessary: {
+                        readOnly: true
+                    },
+                    analytics: {
+                        enabled: true // Default to enabled for better UX, user can disable
+                    }
+                },
+                language: {
+                    default: 'en',
+                    translations: {
+                        en: {
+                            consentModal: {
+                                title: 'Protocol Check',
+                                description: 'We use cookies to analyze traffic and maintain the index. No personal data is sold.',
+                                acceptAllBtn: 'Acknowledge',
+                                acceptNecessaryBtn: 'Reject All',
+                                showPreferencesBtn: 'Preferences',
+                                footer: '<a href="/privacy">Privacy Policy</a>\n<a href="/terms">Terms</a>'
+                            },
+                            preferencesModal: {
+                                title: 'Consent Preferences',
+                                acceptAllBtn: 'Save & Accept All',
+                                acceptNecessaryBtn: 'Reject All',
+                                savePreferencesBtn: 'Save Preferences',
+                                closeIconLabel: 'Close',
+                                sections: [
+                                    {
+                                        title: 'Cookie Usage',
+                                        description: 'We use cookies strictly for functional operations and anonymous analytics.'
+                                    },
+                                    {
+                                        title: 'Strictly Necessary',
+                                        description: 'Required for the site to function.',
+                                        linkedCategory: 'necessary'
+                                    },
+                                    {
+                                        title: 'Analytics',
+                                        description: 'Helps us identify popular spots and improve the index.',
+                                        linkedCategory: 'analytics'
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
 	</body>
 </html>
