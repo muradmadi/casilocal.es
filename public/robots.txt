@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /keystatic/
+Disallow: /design-system
+Disallow: /submit/success
+
+Sitemap: https://casilocal.es/sitemap-index.xml

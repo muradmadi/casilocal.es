@@ -24,6 +24,16 @@ export default defineConfig({
   },
 
   output: 'static',
-  integrations: [react(), mdx(), sitemap(), keystatic()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap({
+      filter: (page) =>
+        !page.includes('/design-system') &&
+        !page.includes('/submit/success') &&
+        !page.includes('/keystatic'),
+    }),
+    keystatic(),
+  ],
   adapter: vercel(),
 });
