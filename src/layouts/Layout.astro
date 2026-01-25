@@ -6,13 +6,15 @@ interface Props {
 	description?: string;
 	image?: string; 
     type?: 'website' | 'article';
+    schema?: object;
 }
 
 const { 
 	title = "CasiLocal", 
 	description = "The curated guide to Madrid's best spots for digital nomads.",
 	image = "/og-default.jpg",
-    type = "website"
+    type = "website",
+    schema
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -25,8 +27,12 @@ import Footer from '../components/Footer.astro';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+		<link rel="shortcut icon" href="/favicons/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="CasiLocal" />
+		<link rel="manifest" href="/favicons/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={canonicalURL} />
         <link rel="sitemap" href="/sitemap-index.xml" />
@@ -48,6 +54,9 @@ import Footer from '../components/Footer.astro';
         <meta property="twitter:title" content={fullTitle} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+        <!-- JSON-LD Schema -->
+        {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 	</head>
 	<body>
         <Masthead />

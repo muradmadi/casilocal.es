@@ -66,3 +66,4 @@ trigger: always_on
 3. **Never** use "lorem ipsum". Use realistic content stubs or draft data from Keystatic.
 4. **Never** leave `console.log` in production code. Use a dedicated logger or strip them at build time.
 5. **Never** use the browser subagent, it is not needed, do not attempt, i will manually stop you from ever accessing it.
+6. **Never** use grep in the terminal, powershell does not recognize this command, do not be an idiot. 

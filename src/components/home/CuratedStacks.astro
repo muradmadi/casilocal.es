@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-const spots = await getCollection('spots');
+const spots = (await getCollection('spots')).filter(spot => !!spot.data.coverImage?.image);
 
 // 1. Calculate Top Neighborhoods
 const neighborhoodCounts = spots.reduce((acc, spot) => {
@@ -18,60 +18,81 @@ const topNeighborhoods = Object.entries(neighborhoodCounts)
         desc: `${count} Locations`,
         href: `/neighborhoods/${name.toLowerCase().replace(/\s+/g, '-')}/`
     }));
-
-// 2. Count Stats for Infrastructure
-const powerHeavyCount = spots.filter(s => s.data.metrics.plug_access).length;
-// Assuming we don't have explicit 'long haul' or 'emergency' flags in current schema, we'll use placeholder or derived logic if possible.
-// For now, we'll stick to the count we have or generic descriptions if data is missing.
-
-// 3. Count Stats for Acoustics
-const silenceCount = spots.filter(s => s.data.metrics.noise_level === 'silence').length;
-const humCount = spots.filter(s => s.data.metrics.noise_level === 'hum').length;
-const callFriendlyCount = spots.filter(s => s.data.metrics.noise_level === 'chaos' || s.data.metrics.wifi_speed === 'flynet').length; // Loose proxy
-
-const stacks = [
-  {
-    title: "The Infrastructure",
-    subtitle: "(Power)",
-    seo: "POWER_GRID",
-    items: [
-      { label: "1:1 Outlet Ratio", desc: `${powerHeavyCount} verified spots with plugs.`, href: "/lists/power-heavy/" },
-      { label: "The Long Haul", desc: "4+ hour sessions allowed.", href: "/lists/long-duration/" },
-      { label: "Emergency Charging", desc: "Near transit hubs.", href: "/lists/quick-charge/" }
-    ]
-  },
-  {
-    title: "The Acoustics",
-    subtitle: "(Noise)",
-    seo: "SOUND_TIERS",
-    items: [
-      { label: "Tier 1: Absolute Silence", desc: `${silenceCount} libraries & quiet zones.`, href: "/lists/silence/" },
-      { label: "Tier 2: The Golden Hum", desc: `${humCount} spots with white noise.`, href: "/lists/ambient/" },
-      { label: "Active Zones", desc: `${callFriendlyCount} spots for calls/meetings.`, href: "/lists/calls-allowed/" }
-    ]
-  },
-  {
-    title: "The Territories",
-    subtitle: "(Neighborhoods)",
-    seo: "ZONE_INDEX",
-    items: topNeighborhoods
-  }
-];
 ---
 <section class="py-24 px-4 lg:px-6 bg-bg-main border-b-2 border-dotted border-line">
-    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
-        {stacks.map((stack) => (
-            <div class="space-y-8">
-                <header class="border-b-2 border-line-heavy pb-6">
+    <div class="max-w-screen-xl mx-auto space-y-20">
+        
+        <!-- Section Heading -->
+        <h2 class="font-display font-black text-4xl md:text-5xl text-text-main tracking-tight text-center">
+            We Care About
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
+            
+            <!-- Column 1: The Infrastructure (Power) -->
+            <div class="flex flex-col items-start text-left space-y-8 h-full">
+                <header class="w-full border-b-2 border-line-heavy pb-6">
                     <div class="font-display text-3xl font-bold">
-                        {stack.title} <span class="block text-text-main/40 font-normal text-xl mt-1">{stack.subtitle}</span>
+                        The Infrastructure <span class="block text-text-main/40 font-normal text-xl mt-1">(Power)</span>
                     </div>
                 </header>
                 
-                <ul class="space-y-8">
-                    {stack.items.map((item) => (
-                        <li class="group">
-                            <a href={item.href} class="block group-hover:translate-x-2 transition-transform duration-300 ease-mechanical">
+                <div class="flex flex-col items-start flex-1 w-full">
+                    <p class="font-body text-lg text-text-main/80 leading-relaxed mb-8">
+                        A dead battery kills flow. We verify accessible outlets at every spot, ensuring you can push through the longest sessions without anxiety.
+                    </p>
+                    
+                    <div class="mt-auto">
+                        <a href="/spots/?plugs=true" class="group inline-flex items-center gap-2">
+                            <span class="inline-block font-body font-bold text-xl text-text-main group-hover:text-action transition-colors border-b border-transparent group-hover:border-action">
+                                Browse Power-Ready Spots
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: The Acoustics (Noise) -->
+            <div class="flex flex-col items-start text-left space-y-8 h-full">
+                <header class="w-full border-b-2 border-line-heavy pb-6">
+                    <div class="font-display text-3xl font-bold">
+                        The Acoustics <span class="block text-text-main/40 font-normal text-xl mt-1">(Noise)</span>
+                    </div>
+                </header>
+                
+                <div class="flex flex-col items-start flex-1 w-full">
+                    <p class="font-body text-lg text-text-main/80 leading-relaxed mb-8">
+                       From pin-drop silence to the energetic hum of an espresso machine. Choose the acoustic environment that matches your current deep work mode.
+                    </p>
+                    
+                    <div class="flex items-center gap-6 mt-auto">
+                        <a href="/spots/?noise=silence" class="group inline-flex items-center gap-2">
+                            <span class="inline-block font-body font-bold text-xl text-text-main group-hover:text-action transition-colors border-b border-transparent group-hover:border-action">
+                                Library
+                            </span>
+                        </a>
+                        <span class="text-text-main/20">|</span>
+                        <a href="/spots/?noise=hum" class="group inline-flex items-center gap-2">
+                            <span class="inline-block font-body font-bold text-xl text-text-main group-hover:text-action transition-colors border-b border-transparent group-hover:border-action">
+                                Cafe Buzz
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: The Territories (Neighborhoods) -->
+            <div class="flex flex-col items-start text-left space-y-8 h-full">
+                <header class="w-full border-b-2 border-line-heavy pb-6">
+                    <div class="font-display text-3xl font-bold">
+                        The Territories <span class="block text-text-main/40 font-normal text-xl mt-1">(Neighborhoods)</span>
+                    </div>
+                </header>
+                
+                <ul class="flex flex-col items-start space-y-8 flex-1 w-full">
+                    {topNeighborhoods.map((item) => (
+                        <li class="group w-full">
+                            <a href={item.href} class="block transition-transform duration-300 ease-mechanical group-hover:translate-x-2">
                                 <span class="inline-block font-body font-bold text-xl text-text-main group-hover:text-action transition-colors border-b border-transparent group-hover:border-action">
                                     {item.label}
                                 </span>
@@ -83,6 +104,7 @@ const stacks = [
                     ))}
                 </ul>
             </div>
-        ))}
+
+        </div>
     </div>
 </section>

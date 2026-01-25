@@ -1,5 +1,5 @@
 ---
-import { MapPin, Wifi, Volume2, Plug, ExternalLink } from 'lucide-react';
+import { Wifi, Volume2, Plug } from 'lucide-react';
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 
@@ -39,7 +39,7 @@ const rentBars = data.metrics.coffee_price < 2.0 ? 1
 <div class="space-y-8">
   
   <!-- Vital Stats (Definition List) -->
-  <dl class="space-y-5">
+  <dl class="space-y-6">
     
     <!-- WiFi as Signal Bars -->
     <div class="pb-4 border-b border-dotted border-ink/20">
@@ -120,48 +120,46 @@ const rentBars = data.metrics.coffee_price < 2.0 ? 1
 
   </dl>
 
-  <!-- GET DIRECTIONS Button -->
-  <a 
-    href={mapsUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="w-full flex items-center justify-center gap-3 bg-ink text-paper hover:bg-action px-6 py-5 rounded-xs shadow-button hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-100 ease-mechanical font-mono text-sm uppercase tracking-widest group"
-    aria-label="Get directions to this spot"
-  >
-    <MapPin className="w-5 h-5" />
-    <span>Get Directions</span>
-    <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-  </a>
+  <!-- GET DIRECTIONS Button & Coords -->
+  <div>
+    <a 
+      href={mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-primary w-full flex items-center justify-center py-4 text-sm font-display font-black uppercase tracking-widest shadow-button hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-100 ease-mechanical"
+      aria-label="Get directions to this spot"
+    >
+      Get Directions
+    </a>
+    <p class="font-mono text-[10px] text-text-main/30 text-center mt-3">
+      {data.metrics.coordinates.lat.toFixed(6)}, {data.metrics.coordinates.long.toFixed(6)}
+    </p>
+  </div>
 
   <!-- Review By (Author) -->
   {author && (
-    <div class="pt-4 border-t border-dotted border-ink/20">
+    <div class="pt-8 border-t-2 border-dotted border-ink/20">
       <p class="font-mono text-[10px] uppercase tracking-widest text-text-main/50 mb-3">
         Review by
       </p>
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full overflow-hidden border border-ink/20 flex-shrink-0">
+      <a href={`/authors/${author.id}/`} class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full overflow-hidden border border-ink/20 flex-shrink-0 group-hover:border-action transition-colors">
           <Image 
             src={author.data.avatar} 
             alt={author.data.name}
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
         <div>
-          <p class="font-display text-lg font-bold text-text-main leading-tight">
+          <p class="font-display text-lg font-bold text-text-main leading-tight group-hover:text-action transition-colors border-b border-transparent group-hover:border-action inline-block">
             {author.data.name}
           </p>
           <p class="font-mono text-[10px] text-text-main/50 uppercase tracking-wider">
             {author.data.role}
           </p>
         </div>
-      </div>
+      </a>
     </div>
   )}
-
-  <!-- Coordinates (small print) -->
-  <p class="font-mono text-[10px] text-text-main/30 text-center">
-    {data.metrics.coordinates.lat.toFixed(6)}, {data.metrics.coordinates.long.toFixed(6)}
-  </p>
 
 </div>

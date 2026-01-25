@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  return authors.map(author => ({
+    params: { id: author.id },
+    props: { author },
+  }));
+}
+
+const { author } = Astro.props;
+const { Content } = await render(author); // Use render() for Astro 5.0 / Content Collections
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": author.data.name,
+  "jobTitle": author.data.role,
+  "image": author.data.avatar?.src ? new URL(author.data.avatar.src, Astro.site).toString() : undefined,
+  "url": Astro.url.href,
+  "worksFor": {
+    "@type": "Organization",
+    "name": "CasiLocal"
+  }
+};
+---
+
+<Layout title={`${author.data.name} | CasiLocal`} description={`Profile of ${author.data.name}, ${author.data.role} at CasiLocal.`} schema={schema}>
+    <section class="min-h-[80vh] flex flex-col items-center justify-center py-24 px-4 bg-bg-main relative overflow-hidden">
+         <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] mask-gradient pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl w-full text-center space-y-8">
+            <!-- Author Avatar -->
+            <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
+                <div class="absolute inset-0 border-2 border-text-main rounded-full translate-x-1 translate-y-1"></div>
+                <Image 
+                    src={author.data.avatar} 
+                    alt={author.data.name} 
+                    width={320}
+                    height={320}
+                    class="w-full h-full object-cover rounded-full border-2 border-text-main grayscale hover:grayscale-0 transition-all duration-500 bg-bg-main"
+                />
+            </div>
+
+            <!-- Author Header -->
+            <div class="space-y-4">
+                <h1 class="font-display font-black text-5xl md:text-6xl text-text-main tracking-tighter">
+                    {author.data.name}
+                </h1>
+                <p class="font-mono text-sm md:text-base text-action uppercase tracking-widest font-bold">
+                    {author.data.role}
+                </p>
+            </div>
+
+            <!-- Author Bio / Content -->
+            <div class="prose prose-lg prose-p:font-body prose-p:text-text-main/80 prose-headings:font-display prose-headings:text-text-main mx-auto text-center">
+                <Content />
+            </div>
+
+            <!-- Empty State for Description if Markdown is empty -->
+            <div class="empty:hidden"></div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .mask-gradient {
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    }
+</style>

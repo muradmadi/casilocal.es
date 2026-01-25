@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Privacy Policy";
+const seoDescription = "Operational data practices and GDPR compliance commitments for CasiLocal.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="w-full max-w-3xl mx-auto px-6 py-12 md:py-20 space-y-16">
+    
+    <!-- Header -->
+    <section class="space-y-6 text-center">
+      <h1 class="font-display font-black text-6xl md:text-8xl tracking-tighter leading-[0.9] text-[var(--color-ink)]">
+        Privacy Policy
+      </h1>
+      <p class="font-display italic text-2xl md:text-3xl text-[var(--color-ink)] leading-tight max-w-2xl mx-auto">
+        Last Updated: January 2026
+      </p>
+    </section>
+
+    <div class="border-b-2 border-dotted border-[var(--color-inc)]/20 w-full"></div>
+
+    <!-- Policy Content -->
+    <article class="prose prose-lg prose-headings:font-display prose-headings:font-bold prose-headings:uppercase prose-p:font-body text-[var(--color-ink)] max-w-none">
+        
+        <section>
+            <h2>1. The Controller</h2>
+            <p>
+                <strong>CasiLocal</strong> ("we," "us," or "our") operates this website. We are based in Madrid, Spain. 
+                We are the Data Controller responsible for your personal data under the General Data Protection Regulation (GDPR).
+            </p>
+            <p>
+                <strong>Contact for Data Requests:</strong><br/>
+                <a href="mailto:privacy@casilocal.com" class="font-mono text-action hover:underline">privacy@casilocal.com</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>2. What We Collect & Why</h2>
+            <p>
+                We practice <strong>Data Minimization</strong>. We do not want your data unless it is strictly necessary to operate the directory.
+            </p>
+            
+            <h3>A. Information You Provide Voluntarily</h3>
+            <ul>
+                <li>
+                    <strong>"Submit Intel" Form:</strong> If you submit a new spot or a correction, we may collect your email address (optional) to verify the submission or notify you of publication.
+                </li>
+                <li>
+                    <strong>Content & Media:</strong> Any text reviews or photos you upload are processed to be displayed publicly on the CasiLocal directory. By uploading, you grant us a non-exclusive license to display this content.
+                </li>
+            </ul>
+
+            <h3>B. Technical Data (The Infrastructure)</h3>
+            <ul>
+                <li>
+                    <strong>Local Storage:</strong> We use your browser’s Local Storage to save your interface preferences (e.g., if you toggled "Dark Mode" or filtered by "Silence"). This data stays on your device and is never sent to our servers.
+                </li>
+                <li>
+                    <strong>Server Logs:</strong> Our hosting provider automatically logs IP addresses and request timestamps for security purposes (DDoS protection, error debugging). These logs are retained for a limited period and then purged.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Third-Party Processors</h2>
+            <p>
+                We rely on specific external services to power the infrastructure. We have ensured these partners are compliant with EU data standards.
+            </p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm font-mono border-2 border-line">
+                    <thead class="bg-text-main text-bg-main uppercase">
+                        <tr>
+                            <th class="p-4">Service</th>
+                            <th class="p-4">Purpose</th>
+                            <th class="p-4">Data Shared</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-bg-main divide-y divide-line">
+                        <tr>
+                            <td class="p-4 font-bold">Vercel / Netlify</td>
+                            <td class="p-4">Hosting & CDN</td>
+                            <td class="p-4">IP Address (Technical Necessity)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Google Maps</td>
+                            <td class="p-4">Visualizations</td>
+                            <td class="p-4">IP Address, Location (if allowed)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Web3Forms</td>
+                            <td class="p-4">Form Submission</td>
+                            <td class="p-4">Form contents</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="mt-8">
+                <strong>A Note on AI:</strong> CasiLocal uses Large Language Models (LLMs) to analyze publicly available Google Reviews to generate our "Suitability Scores." We do not feed your private form submissions or personal contact details into these models.
+            </p>
+        </section>
+
+        <section>
+            <h2>4. Cookies</h2>
+            <p>We strictly limit the use of cookies.</p>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Required for the site to function (e.g. load balancing).</li>
+                <li><strong>Google Maps Cookies:</strong> If you interact with an embedded map, Google may set cookies to track your location and preferences according to their own Privacy Policy.</li>
+                <li><strong>Analytics:</strong> We do not currently use third-party tracking pixels or analytics software.</li>
+            </ul>
+            <p>You can block cookies via your browser settings. The site will remain functional, though map features may degrade.</p>
+        </section>
+
+        <section>
+            <h2>5. Your Rights (GDPR)</h2>
+            <p>Under EU law, you have the following rights regarding your data:</p>
+            <ul>
+                <li><strong>Right of Access:</strong> You can ask for a copy of any personal data we hold about you.</li>
+                <li><strong>Right to Rectification:</strong> You can ask us to fix incorrect data (e.g., if we credited your submission to the wrong name).</li>
+                <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You can ask us to delete your submission data or email address from our records.</li>
+                <li><strong>Right to Object:</strong> You can withdraw consent for us to display your photo or review at any time.</li>
+            </ul>
+            <p>
+                To exercise these rights, email <a href="mailto:privacy@casilocal.com" class="text-action font-mono">privacy@casilocal.com</a>. We will respond within 30 days.
+            </p>
+        </section>
+
+        <section>
+            <h2>6. External Links</h2>
+            <p>
+                CasiLocal contains links to external sites (e.g., Google Maps, cafe websites). We are not responsible for the privacy practices of those external sites. When you leave our domain, their rules apply.
+            </p>
+        </section>
+
+        <section>
+            <h2>7. Changes to This Policy</h2>
+            <p>
+                We may update this policy to reflect changes in our infrastructure or legal requirements. The "Last Updated" date at the top of this page indicates the current version.
+            </p>
+        </section>
+        
+    </article>
+
+  </main>
+</Layout>

@@ -15,6 +15,9 @@ if (!featuredSpot) {
 const { title, neighborhood, metrics } = featuredSpot.data;
 const spotUrl = `/spots/${featuredSpot.id}/`;
 
+// coverImage is always an object with image/alt/source when defined
+const coverImage = featuredSpot.data.coverImage || null;
+
 // Construct a dynamic description based on metrics since we don't have a dedicated excerpt field
 const description = `A top-rated workspace in ${neighborhood} with ${metrics.wifi_speed} internet, ${metrics.noise_level} acoustics, and a Casi Score of ${metrics.casi_score}/10.`;
 ---
@@ -22,10 +25,10 @@ const description = `A top-rated workspace in ${neighborhood} with ${metrics.wif
     <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <!-- Image Side -->
         <a href={spotUrl} class="block relative group cursor-pointer aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm border-2 border-line-heavy shadow-card hover:shadow-card-hover transition-all duration-300 ease-mechanical order-2 lg:order-1">
-             {featuredSpot.data.coverImage ? (
+             {coverImage?.image ? (
                 <Image 
-                    src={featuredSpot.data.coverImage} 
-                    alt={`Interior of ${title}`}
+                    src={coverImage.image} 
+                    alt={coverImage.alt || `Interior of ${title}`}
                     width={800}
                     format="avif"
                     class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" 

@@ -2,14 +2,37 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const spots = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/spots" }),
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "./src/content/spots",
+        generateId: ({ entry, data }) => {
+            // Keep the slug clean: "slug/index.mdx" -> "slug"
+            if (entry.endsWith('/index.mdx') || entry.endsWith('/index.md')) {
+                const parts = entry.split('/');
+                if (parts.length >= 2) {
+                    return parts[parts.length - 2];
+                }
+            }
+            return entry.replace(/\.mdx?$/, '');
+        }
+    }),
     schema: ({ image }) => z.object({
         title: z.string(),
         author: z.string().optional(), // References author by slug
         address: z.string().optional(),
         neighborhood: z.string(),
-        coverImage: image().optional(),
-        gallery: z.array(image()).optional(),
+        coverImage: z.object({
+            image: image(),
+            alt: z.string().optional(),
+            source: z.string().optional()
+        }).optional(),
+        gallery: z.array(
+            z.object({
+                image: image(),
+                alt: z.string().optional(),
+                source: z.string().optional()
+            })
+        ).optional(),
         metrics: z.object({
             wifi_speed: z.enum(['flynet', 'reliable', 'spotty', 'detox']),
             noise_level: z.enum(['silence', 'hum', 'chaos']),

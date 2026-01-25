@@ -252,7 +252,38 @@ const dropdownOptions = [allOption, ...neighborhoods];
   // Initial state
   document.addEventListener('DOMContentLoaded', () => {
     const cards = getSpotCards();
-    if (counterValue && cards.length > 0) {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 1. Handle Neighborhood Param
+    const hoodParam = urlParams.get('neighborhood');
+    if (hoodParam && hoodParam !== 'all') {
+      const option = list?.querySelector<HTMLElement>(`[data-value="${hoodParam}"]`);
+      if (option) {
+        const text = option.dataset.label || 'All Neighborhoods';
+        selectOption(hoodParam, text);
+      }
+    }
+
+    // 2. Handle Noise Param
+    const noiseParam = urlParams.get('noise');
+    if (noiseParam) {
+      const radio = document.querySelector<HTMLInputElement>(`input[name="noise"][value="${noiseParam}"]`);
+      if (radio) {
+        radio.checked = true;
+      }
+    }
+
+    // 3. Handle Plugs Param
+    const plugsParam = urlParams.get('plugs');
+    if (plugsParam === 'true') {
+      if (plugsToggle) plugsToggle.checked = true;
+    }
+
+    // Update UI
+    applyFilters();
+
+    // Update initial count if not filtered
+    if (!hoodParam && !noiseParam && !plugsParam && counterValue && cards.length > 0) {
       counterValue.textContent = cards.length.toString();
     }
   });

@@ -44,7 +44,7 @@
   /* Ideally 'bg-surface' maps to white or dark depending on mode, but here we enforce white for card */
   
   /* Actions */
-  --color-action: var(--color-ember);
+  --color-action: var(--color-foundry-900);
   --color-action-fg: white;
   --color-action-sec: var(--color-foundry-900);
 

@@ -9,6 +9,9 @@ interface Props {
 
 const { spot } = Astro.props;
 const { data, id } = spot;
+
+// coverImage is always an object with image/alt/source when defined
+const coverImage = data.coverImage || null;
 ---
 
 <article 
@@ -21,10 +24,10 @@ const { data, id } = spot;
   
   <!-- Image Header -->
   <div class="aspect-[3/2] overflow-hidden relative border-b border-line-heavy">
-    {data.coverImage ? (
+    {coverImage?.image ? (
       <Image 
-        src={data.coverImage} 
-        alt={data.title}
+        src={coverImage.image} 
+        alt={coverImage.alt || data.title}
         class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-mechanical"
       />
     ) : (

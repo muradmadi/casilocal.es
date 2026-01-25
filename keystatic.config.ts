@@ -1,14 +1,19 @@
 import { config, fields, collection } from '@keystatic/core';
 
 export default config({
-    storage: {
-        kind: 'local',
-    },
+    storage: process.env.NODE_ENV === 'production'
+        ? {
+            kind: 'github',
+            repo: 'muradmadi/casilocal.es',
+        }
+        : {
+            kind: 'local',
+        },
     collections: {
         spots: collection({
             label: 'Spots',
             slugField: 'slug',
-            path: 'src/content/spots/*',
+            path: 'src/content/spots/*/index',
             format: { contentField: 'content' },
             schema: {
                 slug: fields.slug({ name: { label: 'Slug (Neighborhood-Name)' } }),
@@ -19,18 +24,27 @@ export default config({
                 }),
                 address: fields.text({ label: 'Address' }),
                 neighborhood: fields.text({ label: 'Neighborhood' }),
-                coverImage: fields.image({
-                    label: 'Cover Image (3:2)',
-                    directory: 'src/assets/spots',
-                    publicPath: '@assets/spots',
-                }),
-                gallery: fields.array(
-                    fields.image({
-                        label: 'Evidence Photo',
-                        directory: 'src/assets/spots/gallery',
-                        publicPath: '@assets/spots/gallery',
+                coverImage: fields.object({
+                    image: fields.image({
+                        label: 'Cover Image (3:2)',
+                        publicPath: './',
                     }),
-                    { label: 'Evidence Gallery' }
+                    alt: fields.text({ label: 'Alt Text (Optional)' }),
+                    source: fields.text({ label: 'Source URL (Optional)' }),
+                }, { label: 'Cover Image' }),
+                gallery: fields.array(
+                    fields.object({
+                        image: fields.image({
+                            label: 'Evidence Photo',
+                            publicPath: './',
+                        }),
+                        alt: fields.text({ label: 'Alt Text (Optional)' }),
+                        source: fields.text({ label: 'Source URL (Optional)' }),
+                    }),
+                    {
+                        label: 'Evidence Gallery',
+                        itemLabel: (props) => props.fields.alt.value || 'Gallery Image'
+                    }
                 ),
                 metrics: fields.object({
                     wifi_speed: fields.select({
@@ -82,7 +96,7 @@ export default config({
                 avatar: fields.image({
                     label: 'Avatar',
                     directory: 'src/assets/authors',
-                    publicPath: '@assets/authors',
+                    publicPath: '../../assets/authors/',
                 }),
                 bio: fields.mdx({ label: 'Bio' }),
             },
