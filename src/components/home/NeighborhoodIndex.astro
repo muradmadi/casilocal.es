@@ -1,0 +1,25 @@
+---
+const neighborhoods = [
+    "Malasaña", "Chueca", "La Latina", "Lavapiés", 
+    "Chamberí", "Salamanca", "Retiro", "Moncloa", 
+    "Sol", "Justicia", "Conde Duque", "Atocha"
+];
+---
+<section class="py-16 px-4 lg:px-6 border-t border-line bg-bg-main">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-widest text-text-main/40">
+                Neighborhood Index
+            </h3>
+            <div class="h-px bg-line flex-grow"></div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-6 gap-x-8">
+            {neighborhoods.map((hood) => (
+                <a href={`/neighborhoods/${hood.toLowerCase().replace(/\s+/g, '-')}`} class="font-mono text-xs font-bold uppercase text-text-main/60 hover:text-action hover:underline decoration-dotted underline-offset-4 transition-colors">
+                    {hood}
+                </a>
+            ))}
+        </div>
+    </div>
+</section>

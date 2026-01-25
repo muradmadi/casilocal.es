@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "About";
+const seoDescription = "CasiLocal Spots is a directory strictly for finding workspaces in Madrid, distinguishing it from a general travel or food guide.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="w-full max-w-3xl mx-auto px-6 py-12 md:py-20 space-y-16">
+    
+    <!-- 1. Header Area -->
+    <section class="space-y-6 text-center">
+      <h1 class="font-display font-black text-6xl md:text-8xl tracking-tighter leading-[0.9] text-[var(--color-ink)]">
+        About
+      </h1>
+      <p class="font-display italic text-2xl md:text-3xl text-[var(--color-ink)] leading-tight max-w-2xl mx-auto">
+        A directory strictly for finding workspaces in Madrid.
+      </p>
+    </section>
+
+    <div class="border-b-2 border-dotted border-[var(--color-ink)]/20 w-full"></div>
+
+    <!-- 2. Mission Statement -->
+    <section class="prose prose-lg prose-headings:font-display prose-p:font-body text-[var(--color-ink)] max-w-none">
+      <h2 class="font-display font-black text-3xl mb-4">The Utility of Excellence</h2>
+      <p>
+        CasiLocal Spots is explicitly <strong>not</strong> a standard review platform like Google Maps or Yelp. 
+        We do not rate places based on "vibes" or "friendliness" alone. We rate them based on their <span class="font-bold bg-[var(--color-brass)]/30 px-1 rounded-sm">Utility for Production</span>.
+      </p>
+      <p>
+        Can you actually get things done here? Is the wifi fast enough for a video call? 
+        We believe that <strong>quality is infrastructure</strong>. A spot with burnt coffee or a wobbly table is just as broken as a spot with slow wifi. 
+        We demand excellence in both the digital connection and the physical product.
+      </p>
+    </section>
+
+    <!-- 3. Metric Legend -->
+    <section class="space-y-8">
+      <h2 class="font-display font-black text-3xl mb-6">The Legend</h2>
+      
+      <div class="grid gap-8 md:grid-cols-2">
+        
+        <!-- WiFi -->
+        <article class="space-y-3 p-6 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <h3 class="font-display font-bold text-xl border-b-2 border-dotted border-[var(--color-ink)]/20 pb-2">WiFi Speed</h3>
+            <ul class="space-y-2 text-[var(--color-ink)]">
+              <li><strong class="text-[var(--color-ember)]">Flynet:</strong> Fiber-optic speeds. Video calls, large uploads, zero lag.</li>
+              <li><strong class="text-[var(--color-moss)]">Reliable:</strong> Solid for general work, email, and browsing.</li>
+              <li><strong class="text-[var(--color-oxide)]">Spotty:</strong> Good for offline work, but risk of dropping.</li>
+              <li><strong class="text-[var(--color-oxide)]">Detox:</strong> No internet. Pure focus (or panic).</li>
+            </ul>
+        </article>
+
+        <!-- Noise -->
+        <article class="space-y-3 p-6 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <h3 class="font-display font-bold text-xl border-b-2 border-dotted border-[var(--color-ink)]/20 pb-2">Noise Level</h3>
+            <ul class="space-y-2 text-[var(--color-ink)]">
+              <li><strong class="text-[var(--color-moss)]">Library:</strong> Pin-drop quiet. Strict focus.</li>
+              <li><strong class="text-[var(--color-brass)]">Hum:</strong> The standard cafe buzz. White noise for productivity.</li>
+              <li><strong class="text-[var(--color-oxide)]">Lively:</strong> Blenders, chatter, movement. Headphones recommended.</li>
+            </ul>
+        </article>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+         <!-- Plugs -->
+         <article class="space-y-3 p-6 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <h3 class="font-display font-bold text-xl border-b-2 border-dotted border-[var(--color-ink)]/20 pb-2">Plug Access</h3>
+            <p>
+                A simple binary check. Either outlets are accessible to users at tables, or they are not. We don't count the hidden socket behind the fridge.
+            </p>
+        </article>
+
+        <!-- Casi Score -->
+        <article class="space-y-3 p-6 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <h3 class="font-display font-bold text-xl border-b-2 border-dotted border-[var(--color-ink)]/20 pb-2">The "Casi" Score</h3>
+            <p>
+                A weighted suitability calculation strictly for work. It combines <strong>Ergonomics</strong> (comfort), 
+                <strong>Connectivity</strong> (wifi/power), and <strong>Quality</strong> (coffee/service) into a single rating. 
+                If any pillar fails, the score reflects it.
+            </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Methodology -->
+    <section class="p-8 bg-[var(--color-paper)] border-2 border-[var(--color-ink)] rounded-sm relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-50 pointer-events-none"></div>
+        <div class="relative z-10 space-y-4">
+            <h2 class="font-display font-black text-3xl">Methodology</h2>
+            <p class="font-body text-lg">
+                Our data comes from a hybrid engine of two sources:
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <h3 class="font-display font-bold text-lg mb-1">Automated Analysis</h3>
+                    <p class="text-sm">We synthesize thousands of public user reviews using NLP to detect specific patterns—filtering for keywords like "wifi", "laptops", "sockets", and "noise".</p>
+                </div>
+                <div>
+                    <h3 class="font-display font-bold text-lg mb-1">Manual Verification</h3>
+                    <p class="text-sm">Physical spot-checks. We actually go there, order a coffee, and try to work. If the wifi fails, the data changes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-b-2 border-dotted border-[var(--color-ink)]/20 w-full"></div>
+
+    <!-- 5. Disclaimer -->
+    <section class="text-[var(--color-ink)]/80 text-sm font-body max-w-2xl mx-auto text-center space-y-2">
+      <h3 class="font-display font-bold uppercase tracking-widest text-xs">Note on Accuracy</h3>
+      <p>
+        Businesses change. Modems break, outlets get covered, and quiet corners become brunch hotspots. 
+        This directory is a living document. Verify before you commit to a full day of deep work.
+      </p>
+    </section>
+
+  </main>
+</Layout>

@@ -1,0 +1,14 @@
+{
+  "name": "casilocal-bot",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Seeding script for CasiLocal spots collection",
+  "scripts": {
+    "seed": "node scripts/seed-spots.js",
+    "refine": "node scripts/refine-reviews.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "groq-sdk": "^0.8.0"
+  }
+}

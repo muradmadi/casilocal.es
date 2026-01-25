@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MetricBadge from '../components/MetricBadge.astro';
+import ToggleSwitch from '../components/ToggleSwitch.astro';
+import SegmentedControl from '../components/SegmentedControl.astro';
+import FilterDeck from '../components/FilterDeck.astro';
+---
+
+<Layout>
+  <div class="container mx-auto py-12 space-y-12">
+    <header class="space-y-4">
+      <h1 class="text-6xl text-[var(--color-ink)]">Maritime Foundry <em class="text-[var(--color-ember)]">Design System</em></h1>
+      <p class="text-xl max-w-2xl text-[var(--color-ink)]/80">
+        A raw, industrial, and editorial design system built with Astro V5 and Tailwind V4.
+        Uses OKLCH colors and semantic mapping.
+      </p>
+    </header>
+
+    <section class="space-y-8">
+      <div class="space-y-2">
+        <h2 class="text-4xl border-b border-[var(--color-border-hairline)] pb-2">Color Palette</h2>
+        <p class="text-sm font-medium opacity-60">Hover to see functional mapping</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Foundry -->
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-foundry-900)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-white text-xs">Foundry 900 (Base)</span>
+          </div>
+          <p class="text-xs font-mono">--color-foundry-900</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-foundry-800)] rounded-[var(--radius-md)] flex items-end p-2">
+             <span class="text-white text-xs">Foundry 800 (Surface Dark)</span>
+          </div>
+          <p class="text-xs font-mono">--color-foundry-800</p>
+        </div>
+
+        <!-- Paper/Ink -->
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-paper)] border border-[var(--color-border-hairline)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-[var(--color-ink)] text-xs">Paper (Bg Default)</span>
+          </div>
+          <p class="text-xs font-mono">--color-paper</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-ink)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-white text-xs">Ink (Text Primary)</span>
+          </div>
+          <p class="text-xs font-mono">--color-ink</p>
+        </div>
+
+        <!-- Accents -->
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-ember)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-white text-xs">Ember (Action/Primary)</span>
+          </div>
+          <p class="text-xs font-mono">--color-ember</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-brass)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-[var(--color-ink)] text-xs">Brass (Highlight)</span>
+          </div>
+          <p class="text-xs font-mono">--color-brass</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-24 w-full bg-[var(--color-oxide)] rounded-[var(--radius-md)] flex items-end p-2">
+            <span class="text-white text-xs">Oxide (Destructive)</span>
+          </div>
+          <p class="text-xs font-mono">--color-oxide</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="space-y-2">
+        <h2 class="text-4xl border-b border-[var(--color-border-hairline)] pb-2">Typography & Scale</h2>
+        <p class="text-sm font-medium opacity-60">Fraunces (Display) & Instrument Sans (Body)</p>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h1 class="text-7xl">Display Heavy 7xl <em class="text-[var(--color-ember)]">Italic</em></h1>
+        </div>
+        <div>
+          <h2 class="text-6xl">Display Bold 6xl <em class="text-[var(--color-ember)]">& Soft</em></h2>
+        </div>
+        <div>
+          <h3 class="text-5xl">Display Semi 5xl</h3>
+        </div>
+        <div>
+          <h4 class="text-4xl">Display Medium 4xl</h4>
+        </div>
+        <div class="max-w-prose">
+          <p class="text-lg">
+            <strong>Body Large:</strong> The quick brown fox jumps over the lazy dog. 
+            Maritime Foundry prioritizes <span class="text-[var(--color-ember)]">readability and character</span>. 
+            Instrument Sans provides a clean, geometric foundation that feels human.
+          </p>
+          <p class="mt-4">
+            <strong>Body Base:</strong> Navigate through the industrial landscape with precision. 
+            Our semantic system maps <code>bg-action</code> to Ember and <code>bg-surface</code> to Paper.
+            <br/>
+            This ensures that while the colors are raw and oxidized, the implementation remains distinct and manageable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="space-y-2">
+        <h2 class="text-4xl border-b border-[var(--color-border-hairline)] pb-2">Components & Contrast</h2>
+        <p class="text-sm font-medium opacity-60">WCAG AA Checks</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Buttons -->
+        <div class="p-8 bg-bg-main rounded-sm border border-line space-y-4">
+          <h3 class="text-2xl text-text-main">Actions</h3>
+          <div class="flex gap-4">
+            <button class="btn-primary" aria-label="Trigger primary action">
+              Primary Action
+            </button>
+            <button class="btn-secondary" aria-label="Trigger secondary action">
+              Secondary Action
+            </button>
+          </div>
+        </div>
+
+        <!-- Dark Mode / Inverted -->
+        <div class="p-8 bg-bg-dark text-text-inv rounded-sm space-y-4">
+          <h3 class="text-2xl text-text-inv">Inverted Surface</h3>
+          <p class="text-text-inv/80">
+            Text on deep navy backgrounds uses Off-White (Paper) for optimal reading comfort.
+          </p>
+          <button class="btn-primary w-full" aria-label="Trigger call to action">
+            Call to Action
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="space-y-8">
+      <div class="space-y-2">
+        <h2 class="text-4xl border-b border-[var(--color-border-hairline)] pb-2">Control Room</h2>
+        <p class="text-sm font-medium opacity-60">Input Controls & Filtering</p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Filter Deck Preview -->
+        <div class="border border-line-heavy rounded-sm overflow-hidden bg-bg-main relative h-64">
+           <div class="absolute inset-0 overflow-y-auto bg-grain">
+             <FilterDeck />
+             <div class="p-8 text-center text-text-main/20 font-display text-4xl">
+               Content Scrolls Underneath
+             </div>
+             <div class="h-screen"></div> <!-- Spacer to demonstrate sticky -->
+           </div>
+        </div>
+        
+        <!-- Individual Components -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 bg-bg-main border border-line rounded-sm space-y-6">
+            <h3 class="font-display text-xl text-text-main">Toggle Switches</h3>
+            <div class="space-y-4">
+              <ToggleSwitch label="Plugs Available" name="demo-plug" id="demo-plug" />
+              <ToggleSwitch label="Wifi Required" name="demo-wifi" id="demo-wifi" checked={true} />
+            </div>
+          </div>
+
+          <div class="p-8 bg-bg-main border border-line rounded-sm space-y-6">
+            <h3 class="font-display text-xl text-text-main">Segmented Control</h3>
+            <div class="space-y-4">
+              <SegmentedControl 
+                legend="Noise Level" 
+                name="demo-noise" 
+                options={[
+                  { label: 'Silent', value: 'silence' },
+                  { label: 'Hum', value: 'hum' },
+                  { label: 'Loud', value: 'loud' },
+                ]}
+                defaultValue="hum" 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="space-y-2">
+        <h2 class="text-4xl border-b border-[var(--color-border-hairline)] pb-2">Components Ref</h2>
+        <p class="text-sm font-medium opacity-60">Spot Card & Badges</p>
+      </div>
+      
+      <!-- Mock Grid for Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mock Spot Card (Since we might not have content yet, we manually simulate one or import if possible, 
+             but typically we'd use a real one. Here I'll verify the component by using a mock object) -->
+         
+         <div class="p-4 border border-dashed border-text-main/20 rounded-sm">
+            <!-- Note: We can't easily mock the CollectionEntry type perfectly in the template without casting, 
+                 so we'll leave a placeholder or if confident, cast a mock object. 
+                 To avoid build errors with 'any', we will just display the Badges primarily here 
+                 or a raw HTML version if the typed component is too strict for mock data. 
+                 
+                 However, since I defined the component, let's try to mock it.
+            -->
+            <p class="text-sm text-text-main/50 mb-4">Spot Card Preview requiring real content entry.</p>
+            <div class="flex flex-wrap gap-2">
+                <MetricBadge type="wifi" value="flynet" />
+                <MetricBadge type="noise" value="hum" />
+                <MetricBadge type="plug" value={false} />
+            </div>
+         </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,109 @@
+---
+---
+
+<header id="masthead" class="sticky top-0 z-50 w-full bg-bg-main border-b-2 border-line-heavy transition-shadow duration-300">
+  <div class="flex items-center justify-between h-16 px-4 lg:px-6">
+    
+    <!-- Zone A: The Brand (Left) -->
+    <!-- Zone A: The Brand (Left) -->
+    <a href="/" class="group flex items-baseline gap-2 text-text-main transition-colors select-none">
+      <span class="font-display font-black text-2xl tracking-tighter">
+        Casi<span class="text-text-brand italic display-italic group-hover:text-action-sec transition-colors">Local</span>
+      </span>
+      <span class="font-mono text-[10px] opacity-50">v1.0 MAD</span>
+    </a>
+
+    <!-- Zone B: The Compass (Center - Desktop Only) -->
+    <nav class="hidden md:flex gap-1 p-1 border border-line-heavy/20 rounded-sm bg-text-main/5">
+      <a href="/spots/" class="px-4 py-1 text-xs font-mono font-bold uppercase hover:bg-bg-main hover:text-action transition-colors rounded-[2px]">
+        Our Favourite Spots
+      </a>
+      <a href="/map/" class="px-4 py-1 text-xs font-mono font-bold uppercase hover:bg-bg-main hover:text-action transition-colors rounded-[2px]">
+        Map
+      </a>
+      <a href="/about/" class="px-4 py-1 text-xs font-mono font-bold uppercase hover:bg-bg-main hover:text-action transition-colors rounded-[2px]">
+        About
+      </a>
+      <a href="/faq/" class="px-4 py-1 text-xs font-mono font-bold uppercase hover:bg-bg-main hover:text-action transition-colors rounded-[2px]">
+        FAQ
+      </a>
+    </nav>
+
+    <!-- Zone C: The Tools (Right) + Mobile Trigger -->
+    <div class="flex items-center gap-4">
+      <a 
+        href="/submit/"
+        class="hidden sm:inline-block bg-text-main text-text-inv text-xs font-bold uppercase px-4 py-2 hover:bg-action transition-colors shadow-[2px_2px_0px_0px_var(--color-bg-main),4px_4px_0px_0px_var(--color-text-main)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none ease-mechanical duration-100 rounded-xs"
+      >
+        Submit Spot
+      </a>
+
+      <!-- Mobile Menu Trigger -->
+      <button 
+        id="mobile-menu-trigger" 
+        class="md:hidden font-mono text-sm uppercase font-bold text-text-main hover:text-action"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false"
+      >
+        MENU [+]
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer (Garage Door) -->
+  <div 
+    id="mobile-drawer" 
+    class="fixed top-[64px] left-0 w-full bg-bg-dark text-text-inv border-b-2 border-line-heavy transform -translate-y-[150%] transition-transform duration-300 ease-mechanical z-40 shadow-xl"
+  >
+    <nav class="flex flex-col p-6 space-y-4 font-display uppercase tracking-wider text-2xl">
+      <a href="/spots/" class="block hover:text-action py-2 border-b border-white/10">Our Favourite Spots</a>
+      <a href="/map/" class="block hover:text-action py-2 border-b border-white/10">Map</a>
+      <a href="/about/" class="block hover:text-action py-2 border-b border-white/10">About</a>
+      <a href="/faq/" class="block hover:text-action py-2 border-b border-white/10">FAQ</a>
+      <a href="/submit/" class="block text-base font-mono mt-4 text-action">→ Submit a Spot</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const masthead = document.getElementById('masthead');
+  const trigger = document.getElementById('mobile-menu-trigger');
+  const drawer = document.getElementById('mobile-drawer');
+  let isMenuOpen = false;
+
+  // Scroll Logic
+  window.addEventListener('scroll', () => {
+    if (masthead) {
+      if (window.scrollY > 0) {
+        masthead.classList.add('shadow-lg');
+      } else {
+        masthead.classList.remove('shadow-lg');
+      }
+    }
+  });
+
+  // Mobile Menu Logic
+  if (trigger && drawer) {
+    trigger.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      trigger.innerText = isMenuOpen ? 'MENU [-]' : 'MENU [+]';
+      trigger.setAttribute('aria-expanded', isMenuOpen.toString());
+      
+      if (isMenuOpen) {
+        drawer.classList.remove('-translate-y-[150%]');
+      } else {
+        drawer.classList.add('-translate-y-[150%]');
+      }
+    });
+
+    // Close on link click
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        trigger.innerText = 'MENU [+]';
+        trigger.setAttribute('aria-expanded', 'false');
+        drawer.classList.add('-translate-y-[150%]');
+      });
+    });
+  }
+</script>

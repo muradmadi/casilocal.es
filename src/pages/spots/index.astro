@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import SpotCard from '../../components/SpotCard.astro';
+import FilterDeck from '../../components/FilterDeck.astro';
+
+const allSpots = await getCollection('spots');
+const spotCount = allSpots.length;
+
+// Neighborhood display names
+const neighborhoodLabels: Record<string, string> = {
+  'malasana': 'Malasaña',
+  'lavapies': 'Lavapiés',
+  'salamanca': 'Salamanca',
+  'chamberi': 'Chamberí',
+  'la-latina': 'La Latina',
+  'usera': 'Usera',
+  'moncloa': 'Moncloa',
+};
+
+// Compute neighborhoods dynamically from actual data
+const neighborhoodCounts: Record<string, number> = {};
+allSpots.forEach(spot => {
+  const n = spot.data.neighborhood;
+  neighborhoodCounts[n] = (neighborhoodCounts[n] || 0) + 1;
+});
+
+const neighborhoods = Object.entries(neighborhoodCounts)
+  .map(([value, count]) => ({ 
+    value, 
+    label: neighborhoodLabels[value] || value, 
+    count 
+  }))
+  .sort((a, b) => b.count - a.count); // Sort by count descending
+---
+
+<Layout 
+  title="Our Favourite Spots" 
+  description="A curated index of Madrid's best cafes, bars, and coworking spots for digital nomads."
+>
+  <div class="min-h-screen bg-bg-main">
+    <!-- Page Header -->
+    <header class="border-b-2 border-dotted border-line-heavy/30 py-12 px-4 lg:px-8">
+      <div class="max-w-screen-xl mx-auto">
+        <h1 class="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter text-text-main leading-[0.9]">
+          Our Favourite <br class="hidden md:block" />
+          <span class="text-text-brand italic display-italic">Spots</span>
+        </h1>
+        <p class="mt-4 text-lg text-text-main/70 max-w-xl font-body">
+          Every cafe, bar, and hidden gem we've tested. Filtered by wifi speed, noise level, and plug access.
+        </p>
+      </div>
+    </header>
+
+    <!-- Filter Deck (Sticky) -->
+    <FilterDeck spotCount={spotCount} neighborhoods={neighborhoods} />
+
+    <!-- Spots Grid -->
+    <main class="max-w-screen-xl mx-auto px-4 lg:px-8 py-12">
+      {spotCount > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {allSpots.map((spot) => (
+            <SpotCard spot={spot} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-24 border-2 border-dashed border-line-heavy/20 rounded-sm">
+          <p class="font-display text-2xl text-text-main/40 uppercase">No Spots Found</p>
+          <p class="font-mono text-sm text-text-main/30 mt-2">
+            Add your first spot via <a href="/keystatic/" class="underline hover:text-action">Keystatic</a>.
+          </p>
+        </div>
+      )}
+    </main>
+
+    <!-- Footer Note -->
+    <footer class="border-t-2 border-dotted border-line-heavy/30 py-8 px-4 lg:px-8 text-center">
+      <p class="font-mono text-xs text-text-main/40 uppercase tracking-widest">
+        {spotCount} Spots Indexed • Madrid, ES
+      </p>
+    </footer>
+  </div>
+</Layout>

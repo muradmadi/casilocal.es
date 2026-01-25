@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Submit a Spot";
+const seoDescription = "Contribute to the Index. We accept spaces that honor both the work and the coffee.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="w-full max-w-2xl mx-auto px-6 py-12 md:py-20 space-y-16">
+    
+    <!-- 1. The Header: The Call to Quality -->
+    <section class="text-center space-y-6">
+      <h1 class="font-display font-black text-5xl md:text-7xl tracking-tighter text-[var(--color-ink)]">
+        Contribute
+      </h1>
+      <p class="font-body text-lg md:text-xl text-[var(--color-ink)]/80 max-w-xl mx-auto leading-relaxed">
+        We accept spaces that honor both the work and the coffee. 
+        Do not submit chains. Do not submit libraries. 
+        We are looking for the intersection of hospitality and productivity.
+      </p>
+    </section>
+
+    <!-- Success Message (Hidden by default) -->
+    <div id="success-message" class="hidden text-center space-y-8 py-12">
+        <div class="flex justify-center">
+            <div class="p-6 border-2 border-[var(--color-ink)] rounded-full bg-[var(--color-moss)]/20 text-[var(--color-moss)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+        </div>
+        <h2 class="font-display font-black text-5xl tracking-tighter text-[var(--color-ink)]">Received</h2>
+        <p class="font-body text-xl text-[var(--color-ink)]/80 max-w-lg mx-auto">
+            Your transmission has been logged. Our curators will verify the data within 48 hours.
+        </p>
+        <button onclick="window.location.reload()" class="inline-block bg-[var(--color-ink)] text-white font-display font-bold uppercase tracking-wide px-8 py-3 rounded-xs shadow-button hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-100 ease-mechanical">
+            Submit Another
+        </button>
+    </div>
+
+    <form id="submit-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-16">
+        <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY}>
+        <!-- No redirect: Handled via JS -->
+        
+        <!-- 2. Step One: The Anchor -->
+        <section class="space-y-4">
+            <label for="maps-link" class="block font-mono text-sm uppercase tracking-widest text-[var(--color-ink)]/60">
+                01. Google Maps Link
+            </label>
+            <div class="relative group">
+                <input 
+                    type="url" 
+                    id="maps-link" 
+                    name="maps-link"
+                    placeholder="Paste URL here..."
+                    class="w-full bg-transparent border-b-2 border-[var(--color-ink)]/30 py-4 text-xl md:text-2xl font-body text-[var(--color-ink)] placeholder-[var(--color-ink)]/20 focus:outline-none focus:border-[var(--color-ink)] transition-colors"
+                    required
+                />
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 text-[var(--color-moss)] opacity-0 transition-opacity duration-300 pointer-events-none" id="link-valid-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Step Two: The Assessment -->
+        <section class="space-y-10">
+             <div class="flex items-baseline justify-between border-b-2 border-dotted border-[var(--color-ink)]/20 pb-2">
+                 <span class="font-mono text-sm uppercase tracking-widest text-[var(--color-ink)]/60">02. Assessment</span>
+             </div>
+
+             <!-- Group A: WiFi -->
+             <fieldset class="space-y-4">
+                 <legend class="font-mono text-sm font-bold text-[var(--color-ink)] mb-4">WiFi Performance</legend>
+                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                     {['Flynet', 'Reliable', 'Spotty', 'Detox'].map((option) => (
+                         <label class="cursor-pointer group relative">
+                             <input type="radio" name="wifi" value={option.toLowerCase()} class="peer sr-only" />
+                             <span class="block w-full text-center py-3 px-2 border-2 border-[var(--color-ink)]/20 rounded-xs font-mono text-sm text-[var(--color-ink)] transition-all duration-200 
+                                peer-checked:bg-[var(--color-ink)] peer-checked:text-white peer-checked:border-[var(--color-ink)]
+                                group-hover:border-[var(--color-ink)]">
+                                 {option}
+                             </span>
+                         </label>
+                     ))}
+                 </div>
+             </fieldset>
+
+             <!-- Group B: Acoustics -->
+             <fieldset class="space-y-4">
+                <legend class="font-mono text-sm font-bold text-[var(--color-ink)] mb-4">Acoustics</legend>
+                <div class="grid grid-cols-3 gap-3">
+                    {['Silence', 'Hum', 'Chaos'].map((option) => (
+                        <label class="cursor-pointer group relative">
+                            <input type="radio" name="acoustics" value={option.toLowerCase()} class="peer sr-only" />
+                            <span class="block w-full text-center py-3 px-2 border-2 border-[var(--color-ink)]/20 rounded-xs font-mono text-sm text-[var(--color-ink)] transition-all duration-200 
+                               peer-checked:bg-[var(--color-ink)] peer-checked:text-white peer-checked:border-[var(--color-ink)]
+                               group-hover:border-[var(--color-ink)]">
+                                {option}
+                            </span>
+                        </label>
+                    ))}
+                </div>
+            </fieldset>
+
+            <!-- Group C: Power -->
+            <fieldset class="space-y-4">
+                <legend class="font-mono text-sm font-bold text-[var(--color-ink)] mb-4">Power Access</legend>
+                <div class="grid grid-cols-3 gap-3">
+                    {['Abundant', 'Scarce', 'None'].map((option) => (
+                        <label class="cursor-pointer group relative">
+                            <input type="radio" name="power" value={option.toLowerCase()} class="peer sr-only" />
+                            <span class="block w-full text-center py-3 px-2 border-2 border-[var(--color-ink)]/20 rounded-xs font-mono text-sm text-[var(--color-ink)] transition-all duration-200 
+                               peer-checked:bg-[var(--color-ink)] peer-checked:text-white peer-checked:border-[var(--color-ink)]
+                               group-hover:border-[var(--color-ink)]">
+                                {option}
+                            </span>
+                        </label>
+                    ))}
+                </div>
+            </fieldset>
+
+            <!-- Group D: Product -->
+            <fieldset class="space-y-4">
+                <legend class="font-mono text-sm font-bold text-[var(--color-ink)] mb-4">Coffee Quality</legend>
+                <div class="grid grid-cols-3 gap-3">
+                    {['Exceptional', 'Standard', 'Avoid'].map((option) => (
+                        <label class="cursor-pointer group relative">
+                            <input type="radio" name="coffee" value={option.toLowerCase()} class="peer sr-only" />
+                            <span class="block w-full text-center py-3 px-2 border-2 border-[var(--color-ink)]/20 rounded-xs font-mono text-sm text-[var(--color-ink)] transition-all duration-200 
+                               peer-checked:bg-[var(--color-ink)] peer-checked:text-white peer-checked:border-[var(--color-ink)]
+                               group-hover:border-[var(--color-ink)]">
+                                {option}
+                            </span>
+                        </label>
+                    ))}
+                </div>
+            </fieldset>
+        </section>
+
+        <!-- 4. Step Three: The Briefing -->
+        <section class="space-y-4">
+            <label for="review" class="block font-mono text-sm uppercase tracking-widest text-[var(--color-ink)]/60">
+                03. The Briefing
+            </label>
+            <div class="relative">
+                <textarea 
+                    id="review" 
+                    name="review" 
+                    rows="6"
+                    placeholder="What is the best seat? When does it get busy? Is the AC too cold?"
+                    class="w-full p-4 bg-[var(--color-paper)] border-2 border-[var(--color-ink)]/20 rounded-sm font-display italic text-lg text-[var(--color-ink)] placeholder-[var(--color-ink)]/30 focus:outline-none focus:border-[var(--color-ink)] focus:shadow-card transition-all resize-none"
+                    maxlength="500"
+                ></textarea>
+                <div class="text-right mt-2 font-mono text-xs text-[var(--color-ink)]/40" id="char-count">
+                    500 characters remaining
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 6. The Footer: The Pledge -->
+        <section class="space-y-4 pt-8">
+            <button type="submit" class="w-full bg-[var(--color-ink)] text-white font-display font-black uppercase tracking-wide text-xl py-4 rounded-xs shadow-button hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-100 ease-mechanical">
+                Submit Report
+            </button>
+            <p class="text-center font-mono text-xs text-[var(--color-ink)]/50">
+                All submissions are manually verified. If the spot fails the table test, it will not be listed.
+            </p>
+        </section>
+
+    </form>
+  </main>
+</Layout>
+
+<script>
+    // Link Validation Flash
+    const linkInput = document.getElementById('maps-link') as HTMLInputElement;
+    const linkIcon = document.getElementById('link-valid-icon');
+
+    linkInput?.addEventListener('input', () => {
+        if (linkInput.value.includes('google.com/maps') || linkInput.value.includes('goo.gl')) {
+            linkIcon?.classList.remove('opacity-0');
+            linkIcon?.classList.add('opacity-100');
+        } else {
+            linkIcon?.classList.add('opacity-0');
+            linkIcon?.classList.remove('opacity-100');
+        }
+    });
+
+    // Character Count
+    const reviewInput = document.getElementById('review') as HTMLTextAreaElement;
+    const charCount = document.getElementById('char-count');
+    const maxLength = 500;
+
+    reviewInput?.addEventListener('input', () => {
+        const remaining = maxLength - reviewInput.value.length;
+        if (charCount) charCount.innerText = `${remaining} characters remaining`;
+    });
+
+
+
+    // AJAX Form Submission
+    const form = document.getElementById('submit-form') as HTMLFormElement;
+    const successMessage = document.getElementById('success-message');
+    const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerText = "Transmitting...";
+        }
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+
+            const result = await response.json();
+
+            if (response.status === 200) {
+                form.classList.add('hidden');
+                successMessage?.classList.remove('hidden');
+                // Scroll to top to see message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.error(result);
+                alert("Transmission failed: " + result.message);
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Submit Report";
+                }
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong!");
+             if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerText = "Submit Report";
+            }
+        }
+    });
+</script>

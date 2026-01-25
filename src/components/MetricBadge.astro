@@ -1,0 +1,55 @@
+---
+import { Wifi, Volume2, Plug } from 'lucide-react';
+
+interface Props {
+  type: 'wifi' | 'noise' | 'plug';
+  value: string | boolean;
+}
+
+const { type, value } = Astro.props;
+
+// Logic Map
+const getWifiStyle = (val: string) => {
+  switch (val) {
+    case 'flynet': return 'text-status-good';
+    case 'reliable': return 'text-status-neutral';
+    case 'spotty': return 'text-status-bad';
+    case 'detox': return 'text-status-neutral opacity-75';
+    default: return 'text-text-main';
+  }
+};
+
+const getNoiseStyle = (val: string) => {
+  switch (val) {
+    case 'silence': return 'text-status-good';
+    case 'hum': return 'text-status-neutral';
+    case 'chaos': return 'text-status-bad';
+    default: return 'text-text-main';
+  }
+};
+
+let icon;
+let styleClass = '';
+let label = '';
+
+if (type === 'wifi') {
+  icon = Wifi;
+  styleClass = typeof value === 'string' ? getWifiStyle(value) : '';
+  label = typeof value === 'string' ? value : '';
+} else if (type === 'noise') {
+    icon = Volume2;
+    styleClass = typeof value === 'string' ? getNoiseStyle(value) : '';
+    label = typeof value === 'string' ? value : '';
+} else if (type === 'plug') {
+    icon = Plug;
+    styleClass = value ? 'text-status-good' : 'text-text-main/50 line-through';
+    label = value ? '' : ''; // Plug is icon only usually, but we might want text if specified. Requirement says "Icon only. If false, strike-through"
+}
+
+const IconComponent = icon;
+---
+
+<div class={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-text-main/5 text-xs font-body ${styleClass}`}>
+  <IconComponent className="w-3.5 h-3.5" />
+  {type !== 'plug' && <span class="capitalize">{label}</span>}
+</div>

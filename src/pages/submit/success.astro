@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Submission Received";
+const seoDescription = "Thank you for contributing to the CasiLocal Index.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="w-full max-w-2xl mx-auto px-6 py-20 md:py-32 text-center space-y-8">
+    
+    <div class="flex justify-center">
+        <div class="p-6 border-2 border-[var(--color-ink)] rounded-full bg-[var(--color-moss)]/20 text-[var(--color-moss)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+    </div>
+
+    <h1 class="font-display font-black text-5xl md:text-7xl tracking-tighter text-[var(--color-ink)]">
+      Received
+    </h1>
+    
+    <div class="space-y-4 max-w-lg mx-auto">
+        <p class="font-body text-xl text-[var(--color-ink)]/80">
+        Your transmission has been logged.
+        </p>
+        <p class="font-mono text-sm text-[var(--color-ink)]/60">
+        Our curators will verify the data. If the spot passes the Table Test, it will be added to the Index within 48 hours.
+        </p>
+    </div>
+
+    <div class="pt-8">
+        <a href="/" class="inline-block bg-[var(--color-ink)] text-white font-display font-bold uppercase tracking-wide px-8 py-3 rounded-xs shadow-button hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-100 ease-mechanical">
+            Return to Index
+        </a>
+    </div>
+
+  </main>
+</Layout>

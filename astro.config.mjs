@@ -6,18 +6,18 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 import keystatic from '@keystatic/astro';
+import mdx from '@astrojs/mdx';
 
-import node from '@astrojs/node';
+
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://casilocal.es',
+  trailingSlash: 'ignore',
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), sitemap(), keystatic()],
-
-  adapter: node({
-    mode: 'standalone'
-  })
+  output: 'static',
+  integrations: [react(), mdx(), sitemap(), keystatic()],
 });

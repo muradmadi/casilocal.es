@@ -1,0 +1,310 @@
+[
+  {
+    "uri": "https://maps.google.com/?cid=14050224644310581897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "ALCHEMY Specialty Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-alchemy",
+    "processedAt": "2026-01-24T21:16:16.387Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=9049041496803546994&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Slow Café Madrid",
+    "neighborhood": "Centro",
+    "slug": "centro-slow",
+    "processedAt": "2026-01-24T21:16:17.729Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=16404459962232338909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "UMAMI SPECIALTY COFFEE",
+    "neighborhood": "Centro",
+    "slug": "centro-umami",
+    "processedAt": "2026-01-24T21:16:18.754Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=8605972798652281587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Despacito Specialty Coffee - Café Especialidad",
+    "neighborhood": "Centro",
+    "slug": "centro-despacito",
+    "processedAt": "2026-01-24T21:16:19.733Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=7784105659544947672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Urbano Specialty Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-urbano",
+    "processedAt": "2026-01-24T21:16:20.916Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=9091079165648757081&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Boconó Specialty Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-bocono",
+    "processedAt": "2026-01-24T21:16:22.044Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=12112974282940040835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Geisha Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-geisha",
+    "processedAt": "2026-01-24T21:16:23.180Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=17082124200474497052&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Ambu Coffee Letras | Specialty Coffee Shop",
+    "neighborhood": "Huertas",
+    "slug": "huertas-ambu",
+    "processedAt": "2026-01-24T21:16:24.368Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=6426593202604228434&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Pascal Specialty Coffee & Brunch",
+    "neighborhood": "Centro",
+    "slug": "centro-pascal",
+    "processedAt": "2026-01-24T21:16:25.467Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=7862670797418857655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Sistema Café",
+    "neighborhood": "Centro",
+    "slug": "centro-sistema",
+    "processedAt": "2026-01-24T21:16:26.511Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=8641775867671910261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Sole Mio | Specialty Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-sole-mio",
+    "processedAt": "2026-01-24T21:16:33.705Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=9530508032753326214&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "NAJI SPECIALTY COFFEE",
+    "neighborhood": "Chamberí",
+    "slug": "chamberi-naji",
+    "processedAt": "2026-01-24T21:16:40.992Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=16249970219666254974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Café de la Luz",
+    "neighborhood": "Centro",
+    "slug": "centro-de-la-luz",
+    "processedAt": "2026-01-24T21:16:48.343Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=11826017264458338412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "punto Kafé - Cafetería de Especialidad",
+    "neighborhood": "Moncloa",
+    "slug": "moncloa-punto-kafe",
+    "processedAt": "2026-01-24T21:16:55.785Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=8475430218515564008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Sood Coffee (Café de especialidad / Specialty Coffee)",
+    "neighborhood": "Retiro",
+    "slug": "retiro-sood",
+    "processedAt": "2026-01-24T21:17:03.322Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=11242983167649491777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Cafelito",
+    "neighborhood": "Centro",
+    "slug": "centro-cafelito",
+    "processedAt": "2026-01-24T21:17:10.427Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=1417425478745665316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Wolføx Madrid Speciality Coffee Roasters",
+    "neighborhood": "Centro",
+    "slug": "centro-wolf-x",
+    "processedAt": "2026-01-24T21:17:17.727Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=2181607604489612525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Sinfonía Specialty Coffee",
+    "neighborhood": "Salamanca",
+    "slug": "salamanca-sinfonia",
+    "processedAt": "2026-01-24T21:17:25.239Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=18078546263421961636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Pan y Pepinillos Café",
+    "neighborhood": "Centro",
+    "slug": "centro-pan-y-pepinillos",
+    "processedAt": "2026-01-24T21:17:32.599Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=13881516511701229039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "The Fix - Café de Especialidad",
+    "neighborhood": "Moncloa",
+    "slug": "moncloa-the-fix",
+    "processedAt": "2026-01-24T21:17:40.154Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=6285570050760813040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "DABOV Specialty Coffee Spain",
+    "neighborhood": "Centro",
+    "slug": "centro-dabov",
+    "processedAt": "2026-01-24T21:27:08.289Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=16253606351638922058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "PASTORA – Café & Bottle Shop",
+    "neighborhood": "Centro",
+    "slug": "centro-pastora",
+    "processedAt": "2026-01-24T21:27:09.450Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=9232113856529462277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Miles Café - Specialty Coffee & Matcha",
+    "neighborhood": "Centro",
+    "slug": "centro-miles",
+    "processedAt": "2026-01-24T21:27:10.682Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=7839059752177388279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "ALCHEMY Specialty Coffee 2.0",
+    "neighborhood": "Centro",
+    "slug": "centro-alchemy",
+    "processedAt": "2026-01-24T21:27:11.948Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=12062876615151879069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "FOUR Madrid Specialty Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-four",
+    "processedAt": "2026-01-24T21:31:25.044Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=10320548316493257939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Hola Coffee Fourquet",
+    "neighborhood": "Centro",
+    "slug": "centro-hola-fourquet",
+    "processedAt": "2026-01-24T21:31:26.246Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=5789864586761827379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "FELIZ COFFEE TO STAY",
+    "neighborhood": "Centro",
+    "slug": "centro-feliz-coffee-to-stay-feliz",
+    "processedAt": "2026-01-24T21:31:27.595Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=8554640965786120264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "J&J's Books and Coffee",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-j-and-j-s-books",
+    "processedAt": "2026-01-24T21:31:28.898Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=14313367079055823101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Breaking Coffee Specialty Coffee/ Café de especialidad",
+    "neighborhood": "Centro",
+    "slug": "centro-breaking-coffee",
+    "processedAt": "2026-01-24T21:31:29.975Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=1126810332851919795&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Lolina Vintage Café",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-lolina-vintage",
+    "processedAt": "2026-01-24T21:37:32.165Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=5620708204232263553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "La Bicicleta",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-la-bicicleta",
+    "processedAt": "2026-01-24T21:37:33.254Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=13176689936779959085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Misión Café",
+    "neighborhood": "Centro",
+    "slug": "centro-mision",
+    "processedAt": "2026-01-24T21:37:34.364Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=7051318031506420190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Toma Café 1",
+    "neighborhood": "Centro",
+    "slug": "centro-toma",
+    "processedAt": "2026-01-24T21:37:35.591Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=4863409570507183551&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "HanSo Café",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-hanso",
+    "processedAt": "2026-01-24T21:37:36.846Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=10010513938490169149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Café Ajenjo",
+    "neighborhood": "Centro",
+    "slug": "centro-ajenjo",
+    "processedAt": "2026-01-24T21:37:38.038Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=5272795056370224978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Wash Coffee (Specialty Coffee)",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-wash",
+    "processedAt": "2026-01-24T21:37:39.088Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=3327933469854244171&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Le Praliné Brunch / Malasaña",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-le-praline",
+    "processedAt": "2026-01-24T21:37:40.214Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=3036059282860674278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "EatMyTrip Malasaña Brunch & Dinner",
+    "neighborhood": "Malasaña",
+    "slug": "malasana-eatmytrip",
+    "processedAt": "2026-01-24T21:37:41.526Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=11294458526706810186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Masamune Speciality Coffee",
+    "neighborhood": "Centro",
+    "slug": "centro-masamune",
+    "processedAt": "2026-01-24T21:37:44.803Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=15259043437900756260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "El Jardín Secreto Madrid",
+    "neighborhood": "Conde Duque",
+    "slug": "conde-duque-el-jardin-secreto",
+    "processedAt": "2026-01-24T21:37:52.049Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=3496924014079449126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Infernales Café Bar",
+    "neighborhood": "Huertas",
+    "slug": "huertas-infernales",
+    "processedAt": "2026-01-24T21:37:59.261Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=4884171610617633386&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Café de Ruiz",
+    "neighborhood": "Centro",
+    "slug": "centro-ruiz",
+    "processedAt": "2026-01-24T21:38:06.472Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=559103141809496004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "EatMyTrip Gran Via - Specialty Coffee & Brunch Madrid",
+    "neighborhood": "Centro",
+    "slug": "centro-eatmytrip-gran-via",
+    "processedAt": "2026-01-24T21:38:13.694Z"
+  },
+  {
+    "uri": "https://maps.google.com/?cid=2238957162384211853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "name": "Oways Cafe",
+    "neighborhood": "Centro",
+    "slug": "centro-oways",
+    "processedAt": "2026-01-24T21:38:20.975Z"
+  }
+]

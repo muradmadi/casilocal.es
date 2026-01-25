@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ValueProposition from '../components/home/ValueProposition.astro';
+import FeaturedEditorial from '../components/home/FeaturedEditorial.astro';
+import CuratedStacks from '../components/home/CuratedStacks.astro';
+import Methodology from '../components/home/Methodology.astro';
+import Layout from '../layouts/Layout.astro';
+import ValueProposition from '../components/home/ValueProposition.astro';
+import FeaturedEditorial from '../components/home/FeaturedEditorial.astro';
+import CuratedStacks from '../components/home/CuratedStacks.astro';
+import Methodology from '../components/home/Methodology.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="CasiLocal | The Directory for Remote Work in Madrid">
+  <main class="w-full">
+    <ValueProposition />
+    <FeaturedEditorial />
+    <CuratedStacks />
+    <Methodology />
+  </main>
 </Layout>

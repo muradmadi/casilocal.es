@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "System FAQ";
+const seoDescription = "Operating logic and quality standards for the CasiLocal Spots directory.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="w-full max-w-3xl mx-auto px-6 py-12 md:py-20 space-y-16">
+    
+    <!-- 1. The Charter -->
+    <section class="space-y-6 text-center">
+      <h1 class="font-display font-black text-6xl md:text-8xl tracking-tighter leading-[0.9] text-[var(--color-ink)]">
+        FAQ
+      </h1>
+      <p class="font-display italic text-2xl md:text-3xl text-[var(--color-ink)] leading-tight max-w-2xl mx-auto">
+        High Standards. No Compromise.
+      </p>
+    </section>
+
+    <div class="border-b-2 border-dotted border-[var(--color-ink)]/20 w-full"></div>
+
+    <!-- 2. Manifesto -->
+    <section class="prose prose-lg prose-headings:font-display prose-p:font-body text-[var(--color-ink)] max-w-none text-center">
+      <p>
+        We are not "anti-cafe". We are pro-standard. 
+        We believe <strong>competence is holistic</strong>. A cafe that takes care to dial in their espresso usually takes the care to fix a wobbly table. 
+        A place that serves bad coffee usually cuts corners on the WiFi too.
+      </p>
+      <p>
+        A bad desk hurts your back. Bad coffee hurts your soul. Both stop you from working.
+      </p>
+    </section>
+
+    <!-- 3. The Pillars (Visual aid for Q4) -->
+    <section class="grid gap-6 md:grid-cols-3">
+         <!-- Ergonomics -->
+         <div class="p-4 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-2 text-[var(--color-foundry-900)]">Ergonomics</h3>
+            <p class="text-sm font-body text-[var(--color-ink)]">
+                Table height. Chair comfort. Crowd density. The physical ability to endure.
+            </p>
+         </div>
+
+         <!-- Connectivity -->
+         <div class="p-4 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-2 text-[var(--color-ember)]">Connectivity</h3>
+            <p class="text-sm font-body text-[var(--color-ink)]">
+                Throughput and power. The digital lifeline must be unsevered.
+            </p>
+         </div>
+
+         <!-- Quality -->
+         <div class="p-4 border-2 border-[var(--color-ink)] rounded-sm bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-2 text-[var(--color-brass)]">Quality</h3>
+            <p class="text-sm font-body text-[var(--color-ink)]">
+                The product itself. Caffeine is fuel. Bad fuel is a distraction.
+            </p>
+         </div>
+    </section>
+
+    <div class="border-b-2 border-dotted border-[var(--color-ink)]/20 w-full"></div>
+
+    <!-- 4. Operating Logic (The Q&A) -->
+    <section class="space-y-12">
+        <header class="space-y-2">
+            <h2 class="font-display font-black text-3xl">Operating Logic</h2>
+            <p class="text-[var(--color-ink)]/60 font-body text-sm max-w-xl">
+                Addressing common queries regarding our evaluation criteria.
+            </p>
+        </header>
+
+        <div class="space-y-8">
+            
+            <!-- 01: The Coffee Snob -->
+            <article class="group">
+                <h3 class="font-display font-bold text-xl text-[var(--color-ink)] mb-3 flex items-center gap-3">
+                    <span class="font-mono text-sm bg-[var(--color-ink)]/10 px-2 py-1 rounded-xs text-[var(--color-ink)]/60">STD_01</span>
+                    The "Specialty" Requirement
+                </h3>
+                <div class="pl-4 border-l-2 border-[var(--color-ink)]/20 space-y-3">
+                    <div class="text-sm italic text-[var(--color-ink)]/60">
+                        "Can't I just work at a massive chain? Why the snobbery?"
+                    </div>
+                    <p class="text-[var(--color-ink)]">
+                        <strong>System Response:</strong> Because fuel matters. Bad coffee is a distraction. 
+                        We prioritize "Specialty Coffee" because it is a reliable proxy for <em>attention to detail</em>. 
+                        If they care about the grind size, they likely care about the playlist volume and the cleanliness of the bathroom.
+                        Competence tends to be universal.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 02: The Vibe -->
+             <article class="group">
+                <h3 class="font-display font-bold text-xl text-[var(--color-ink)] mb-3 flex items-center gap-3">
+                    <span class="font-mono text-sm bg-[var(--color-ink)]/10 px-2 py-1 rounded-xs text-[var(--color-ink)]/60">LOG_02</span>
+                    Aesthetics vs. Function
+                </h3>
+                <div class="pl-4 border-l-2 border-[var(--color-ink)]/20 space-y-3">
+                    <div class="text-sm italic text-[var(--color-ink)]/60">
+                        "Do you hate beautiful cafes?"
+                    </div>
+                    <p class="text-[var(--color-ink)]">
+                        <strong>System Response:</strong> Not at all. A separate environment induces flow. 
+                        We only hate aesthetics when they replace function. We love an "Instagrammable" cafe, provided the "Instagrammable" chair doesn't cut off circulation to your legs. 
+                        We demand <strong>Beauty and Bandwidth</strong>.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 03: Food -->
+            <article class="group">
+                <h3 class="font-display font-bold text-xl text-[var(--color-ink)] mb-3 flex items-center gap-3">
+                    <span class="font-mono text-sm bg-[var(--color-ink)]/10 px-2 py-1 rounded-xs text-[var(--color-ink)]/60">LOG_03</span>
+                    Sustenance Protocol
+                </h3>
+                <div class="pl-4 border-l-2 border-[var(--color-ink)]/20 space-y-3">
+                    <div class="text-sm italic text-[var(--color-ink)]/60">
+                         "Do these places serve actual food?"
+                    </div>
+                    <p class="text-[var(--color-ink)]">
+                        <strong>System Response:</strong> We track this broadly. 
+                        Some spots are for Sprints (coffee + pastries). Others are for Marathons (full kitchen). 
+                        We flag this in the "Amenities" section so you don't starve during a 4-hour deep work session.
+                    </p>
+                </div>
+            </article>
+
+             <!-- 04: Rating -->
+             <article class="group">
+                <h3 class="font-display font-bold text-xl text-[var(--color-ink)] mb-3 flex items-center gap-3">
+                    <span class="font-mono text-sm bg-[var(--color-ink)]/10 px-2 py-1 rounded-xs text-[var(--color-ink)]/60">CAL_04</span>
+                    Score Calculation
+                </h3>
+                <div class="pl-4 border-l-2 border-[var(--color-ink)]/20 space-y-3">
+                    <div class="text-sm italic text-[var(--color-ink)]/60">
+                        "How is the score calculated?"
+                    </div>
+                    <p class="text-[var(--color-ink)]">
+                        <strong>System Response:</strong> A weighted average of Ergonomics, Connectivity, and Quality. 
+                        If <em>any single pillar fails</em> (e.g., amazing coffee but no internet, or amazing internet but undrinkable mud), the spot cannot receive a top-tier rating.
+                    </p>
+                </div>
+            </article>
+
+             <!-- 05: Noise -->
+             <article class="group">
+                <h3 class="font-display font-bold text-xl text-[var(--color-ink)] mb-3 flex items-center gap-3">
+                    <span class="font-mono text-sm bg-[var(--color-ink)]/10 px-2 py-1 rounded-xs text-[var(--color-ink)]/60">ENV_05</span>
+                    The Golden Hum
+                </h3>
+                <div class="pl-4 border-l-2 border-[var(--color-ink)]/20 space-y-3">
+                    <div class="text-sm italic text-[var(--color-ink)]/60">
+                        "Is 'Silence' always better?"
+                    </div>
+                    <p class="text-[var(--color-ink)]">
+                        <strong>System Response:</strong> No. Complete silence can be unnerving. 
+                        We look for the <strong>Golden Hum</strong>—the background noise of an espresso machine and low chatter that aids focus. 
+                        We penalize "Chaos" (blenders, shouting) and "Library Silence" (fear of typing).
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+  </main>
+</Layout>

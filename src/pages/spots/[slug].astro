@@ -1,0 +1,174 @@
+---
+import { getCollection, render, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SpotSidebar from '../../components/SpotSidebar.astro';
+import SpotCard from '../../components/SpotCard.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const spots = await getCollection('spots');
+  return spots.map(spot => ({
+    params: { slug: spot.id },
+    props: { spot, allSpots: spots },
+  }));
+}
+
+const { spot, allSpots } = Astro.props;
+const { data, id } = spot;
+const { Content } = await render(spot);
+
+// Get nearby alternatives (same neighborhood, different spot)
+const nearbySpots = allSpots
+  .filter(s => s.data.neighborhood === data.neighborhood && s.id !== id)
+  .slice(0, 2);
+
+// Get author if specified
+const author = data.author ? await getEntry('authors', data.author) : null;
+
+const title = `${data.title} | ${data.neighborhood} - CasiLocal`;
+const description = `Review of ${data.title} in ${data.neighborhood}. Wifi: ${data.metrics.wifi_speed}, Noise: ${data.metrics.noise_level}. CasiScore: ${data.metrics.casi_score}/10.`;
+
+// Google Maps directions URL
+const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${data.metrics.coordinates.lat},${data.metrics.coordinates.long}`;
+---
+
+<Layout title={title} description={description} image={data.coverImage?.src} type="article">
+  
+  <!-- ZONE A: Title Block (Full Width) -->
+  <header class="border-b border-ink px-6 py-8 lg:px-12 lg:py-12 bg-bg-main relative">
+    <div class="max-w-screen-xl mx-auto">
+      <!-- Back Link -->
+      <a href="/spots/" class="font-mono text-xs uppercase tracking-widest text-text-main/50 hover:text-action transition-colors mb-6 inline-block">
+        ← Back to Index
+      </a>
+      
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+        <!-- Name & Sub-Data -->
+        <div class="flex-1">
+          <h1 class="font-display text-5xl lg:text-7xl font-black leading-[0.85] tracking-tight text-text-main max-w-2xl">
+            {data.title}
+          </h1>
+          
+          <div class="mt-4 pt-4 border-t-2 border-dotted border-ink/20 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span class="font-mono text-sm uppercase tracking-widest text-text-main/70">
+              {data.neighborhood}
+            </span>
+            {data.address && (
+              <>
+                <span class="text-text-main/30">•</span>
+                <span class="font-body text-sm text-text-main/60">{data.address}</span>
+              </>
+            )}
+          </div>
+        </div>
+        
+        <!-- CasiLocal Certified Stamp -->
+        <div class="flex-shrink-0 relative w-28 h-28 lg:w-36 lg:h-36">
+          <div class="absolute inset-0 rounded-full border-4 border-ember rotate-12 flex flex-col items-center justify-center bg-paper shadow-lg">
+            <div class="font-display text-3xl lg:text-4xl font-black text-ember leading-none">
+              {data.metrics.casi_score}
+            </div>
+            <div class="font-mono text-[10px] uppercase tracking-wider text-ember/70 mt-1">
+              /10
+            </div>
+            <div class="absolute bottom-3 font-mono text-[8px] uppercase tracking-widest text-ember/50">
+              Certified
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container with Spine -->
+  <div class="max-w-screen-xl mx-auto flex flex-col lg:flex-row min-h-screen">
+    
+    <!-- ZONE B: Spec Sheet (Sticky Sidebar) - The "Spine" -->
+    <aside class="lg:w-1/3 lg:border-r border-ink lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto bg-bg-main p-6 lg:p-8">
+      <SpotSidebar spot={spot} mapsUrl={mapsUrl} author={author} />
+    </aside>
+
+    <!-- ZONE C: Field Notes (Main Content) -->
+    <main class="lg:w-2/3 p-6 lg:p-12 bg-bg-main">
+      
+      <!-- Cover Image (if exists) -->
+      {data.coverImage && (
+        <div class="mb-10 border border-ink rounded-sm overflow-hidden relative group">
+          <Image 
+            src={data.coverImage} 
+            alt={data.title}
+            class="w-full aspect-[21/9] object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+          <span class="absolute bottom-2 left-2 font-mono text-[10px] bg-ink text-paper px-2 py-1 rotate-1">
+            COVER
+          </span>
+        </div>
+      )}
+      
+      <!-- Prose Content -->
+      <article class="prose prose-lg max-w-none text-text-main 
+        prose-headings:font-display prose-headings:uppercase prose-headings:text-text-main prose-headings:border-b-2 prose-headings:border-dotted prose-headings:border-ink/20 prose-headings:pb-2
+        prose-p:font-body prose-p:leading-relaxed
+        prose-a:text-action prose-a:underline hover:prose-a:text-text-main
+        prose-blockquote:border-l-4 prose-blockquote:border-brass prose-blockquote:bg-brass/20 prose-blockquote:py-3 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:font-display prose-blockquote:text-ink
+        prose-hr:border-t-2 prose-hr:border-dashed prose-hr:border-ink/30 prose-hr:my-8"
+      >
+        <Content />
+      </article>
+
+      <!-- Evidence Grid -->
+      {data.gallery && data.gallery.length > 0 && (
+        <section class="mt-12 pt-8 border-t-2 border-dashed border-ink/30">
+          <h2 class="font-display text-2xl uppercase mb-6 text-text-main flex items-center gap-3">
+            Evidence
+            <span class="text-text-main/40 text-sm normal-case font-mono">/ Visual Proof</span>
+          </h2>
+          <div class="columns-1 md:columns-2 gap-4 space-y-4">
+            {data.gallery.map((img: ImageMetadata, index: number) => (
+              <div class="break-inside-avoid relative group">
+                <Image 
+                  src={img} 
+                  alt={`${data.title} Evidence ${index + 1}`}
+                  class="w-full border border-ink grayscale hover:grayscale-0 transition-all duration-300 rounded-sm"
+                />
+                <span class="font-mono text-[10px] bg-ink text-paper inline-block px-1.5 py-0.5 absolute bottom-[-6px] left-2 z-10 shadow-sm rotate-1">
+                  EVIDENCE #{index + 1}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- ZONE D: Next Assignment (Nearby Alternatives) -->
+      {nearbySpots.length > 0 && (
+        <section class="mt-16 pt-10 border-t-2 border-ink">
+          <h2 class="font-display text-2xl uppercase mb-2 text-text-main">
+            Nearby Alternatives
+          </h2>
+          <p class="font-mono text-xs text-text-main/50 uppercase tracking-wider mb-8">
+            Other spots in {data.neighborhood}
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {nearbySpots.map(nearbySpot => (
+              <SpotCard spot={nearbySpot} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- No Nearby? Suggest explore -->
+      {nearbySpots.length === 0 && (
+        <section class="mt-16 pt-10 border-t-2 border-ink text-center">
+          <p class="font-mono text-sm text-text-main/50 uppercase tracking-wider mb-4">
+            First scout in {data.neighborhood}
+          </p>
+          <a href="/spots/" class="btn-primary inline-block">
+            Explore All Spots
+          </a>
+        </section>
+      )}
+    </main>
+  </div>
+</Layout>

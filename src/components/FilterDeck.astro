@@ -1,0 +1,259 @@
+---
+import ToggleSwitch from './ToggleSwitch.astro';
+import SegmentedControl from './SegmentedControl.astro';
+
+interface Neighborhood {
+  value: string;
+  label: string;
+  count: number;
+}
+
+interface Props {
+  spotCount?: number;
+  neighborhoods?: Neighborhood[];
+}
+
+const { spotCount = 0, neighborhoods = [] } = Astro.props;
+
+const allOption = { value: 'all', label: 'All Neighborhoods', count: spotCount };
+const dropdownOptions = [allOption, ...neighborhoods];
+---
+
+<form 
+  id="filter-deck" 
+  class="sticky top-[64px] z-30 bg-bg-main border-b-2 border-line-heavy shadow-md" 
+  onsubmit="event.preventDefault()"
+  data-spot-count={spotCount}
+>
+  <div class="max-w-screen-xl mx-auto px-4 lg:px-8 py-4 space-y-4">
+    
+    <!-- Row 1: Custom Dropdown (Neighborhood) -->
+    <div class="relative" id="neighborhood-dropdown">
+      <!-- Hidden select for form submission -->
+      <select 
+        id="neighborhood-select" 
+        name="neighborhood"
+        class="sr-only"
+        aria-hidden="true"
+      >
+        {dropdownOptions.map((n) => (
+          <option value={n.value}>{n.label} ({n.count})</option>
+        ))}
+      </select>
+      
+      <!-- Custom Trigger Button -->
+      <button
+        type="button"
+        id="dropdown-trigger"
+        class="w-full flex items-center justify-between bg-transparent font-display text-lg md:text-2xl text-text-main border-b-2 border-line-heavy pb-2 focus:outline-none focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-text-main focus-visible:outline-offset-4 cursor-pointer text-left"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-label="Select neighborhood"
+      >
+        <span id="dropdown-label">All Neighborhoods ({spotCount})</span>
+        <svg 
+          id="dropdown-chevron"
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="square" 
+          stroke-linejoin="miter"
+          class="transition-transform duration-100"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+      
+      <!-- Custom Dropdown List -->
+      <ul
+        id="dropdown-list"
+        role="listbox"
+        class="absolute top-full left-0 w-full mt-1 bg-bg-main border-2 border-line-heavy rounded-sm shadow-card max-h-64 overflow-y-auto hidden z-50"
+        tabindex="-1"
+      >
+        {dropdownOptions.map((n, i) => (
+          <li
+            role="option"
+            data-value={n.value}
+            data-label={`${n.label} (${n.count})`}
+            class="px-4 py-3 font-display text-base cursor-pointer hover:bg-text-main/5 border-b border-dotted border-line-heavy/30 last:border-b-0 flex items-center justify-between group transition-colors"
+            tabindex={i === 0 ? 0 : -1}
+          >
+            <span class="group-hover:text-action">{n.label}</span>
+            <span class="font-mono text-xs text-text-main/50">({n.count})</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Row 2: Secondary Filters & Counters -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-6">
+        
+        <!-- Noise Level -->
+        <div class="flex items-center gap-3">
+          <span class="font-display text-sm uppercase tracking-wider text-text-main hidden sm:block">Noise</span>
+          <SegmentedControl 
+            legend="Filter by Noise Level" 
+            name="noise" 
+            options={[
+              { label: 'All', value: 'all' },
+              { label: 'Library', value: 'silence' },
+              { label: 'Hum', value: 'hum' },
+              { label: 'Lively', value: 'chaos' },
+            ]} 
+            defaultValue="all"
+          />
+        </div>
+
+        <!-- Plugs -->
+        <div class="h-6 w-px bg-line hidden sm:block" aria-hidden="true"></div>
+        
+        <ToggleSwitch label="Plugs" name="plugs" id="plugs-toggle" />
+      </div>
+
+      <!-- Result Counter -->
+      <div class="flex items-center justify-end">
+        <span 
+          id="spot-counter" 
+          class="inline-flex items-center px-3 py-1.5 rounded-full bg-text-main text-text-inv font-mono text-xs font-bold shadow-sm"
+        >
+          <span id="counter-value">{spotCount}</span>&nbsp;SPOTS
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  // Custom Dropdown Logic
+  const trigger = document.getElementById('dropdown-trigger');
+  const list = document.getElementById('dropdown-list');
+  const label = document.getElementById('dropdown-label');
+  const chevron = document.getElementById('dropdown-chevron');
+  const hiddenSelect = document.getElementById('neighborhood-select') as HTMLSelectElement | null;
+  const options = list?.querySelectorAll<HTMLLIElement>('[role="option"]');
+  
+  let isOpen = false;
+  
+  function toggleDropdown(open?: boolean) {
+    isOpen = open !== undefined ? open : !isOpen;
+    
+    if (isOpen) {
+      list?.classList.remove('hidden');
+      chevron?.classList.add('rotate-180');
+      trigger?.setAttribute('aria-expanded', 'true');
+    } else {
+      list?.classList.add('hidden');
+      chevron?.classList.remove('rotate-180');
+      trigger?.setAttribute('aria-expanded', 'false');
+    }
+  }
+  
+  function selectOption(value: string, labelText: string) {
+    if (label) label.textContent = labelText;
+    if (hiddenSelect) {
+      hiddenSelect.value = value;
+      hiddenSelect.dispatchEvent(new Event('change'));
+    }
+    toggleDropdown(false);
+  }
+  
+  // Trigger click
+  trigger?.addEventListener('click', () => toggleDropdown());
+  
+  // Option click
+  options?.forEach(option => {
+    option.addEventListener('click', () => {
+      const value = option.dataset.value || 'all';
+      const text = option.dataset.label || 'All Neighborhoods';
+      selectOption(value, text);
+    });
+    
+    // Keyboard navigation
+    option.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const value = option.dataset.value || 'all';
+        const text = option.dataset.label || 'All Neighborhoods';
+        selectOption(value, text);
+      }
+    });
+  });
+  
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('neighborhood-dropdown');
+    if (dropdown && !dropdown.contains(e.target as Node)) {
+      toggleDropdown(false);
+    }
+  });
+  
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      toggleDropdown(false);
+      trigger?.focus();
+    }
+  });
+
+  // Client-side filtering logic
+  const noiseInputs = document.querySelectorAll<HTMLInputElement>('input[name="noise"]');
+  const plugsToggle = document.getElementById('plugs-toggle') as HTMLInputElement | null;
+  const counterValue = document.getElementById('counter-value');
+  
+  const getSpotCards = () => document.querySelectorAll<HTMLElement>('[data-spot-card]');
+  
+  function applyFilters() {
+    const cards = getSpotCards();
+    const neighborhood = hiddenSelect?.value || 'all';
+    const noiseLevel = document.querySelector<HTMLInputElement>('input[name="noise"]:checked')?.value || 'all';
+    const plugsRequired = plugsToggle?.checked || false;
+    
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+      const cardNeighborhood = card.dataset.neighborhood || '';
+      const cardNoise = card.dataset.noise || '';
+      const cardPlugs = card.dataset.plugs === 'true';
+      
+      let show = true;
+      
+      if (neighborhood !== 'all' && cardNeighborhood !== neighborhood) {
+        show = false;
+      }
+      
+      if (noiseLevel !== 'all' && cardNoise !== noiseLevel) {
+        show = false;
+      }
+      
+      if (plugsRequired && !cardPlugs) {
+        show = false;
+      }
+      
+      card.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+    
+    if (counterValue) {
+      counterValue.textContent = visibleCount.toString();
+    }
+  }
+  
+  // Event listeners
+  hiddenSelect?.addEventListener('change', applyFilters);
+  noiseInputs.forEach(input => input.addEventListener('change', applyFilters));
+  plugsToggle?.addEventListener('change', applyFilters);
+  
+  // Initial state
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = getSpotCards();
+    if (counterValue && cards.length > 0) {
+      counterValue.textContent = cards.length.toString();
+    }
+  });
+</script>

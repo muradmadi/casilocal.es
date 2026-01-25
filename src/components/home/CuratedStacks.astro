@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+
+const spots = await getCollection('spots');
+
+// 1. Calculate Top Neighborhoods
+const neighborhoodCounts = spots.reduce((acc, spot) => {
+    const hood = spot.data.neighborhood;
+    acc[hood] = (acc[hood] || 0) + 1;
+    return acc;
+}, {} as Record<string, number>);
+
+const topNeighborhoods = Object.entries(neighborhoodCounts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([name, count]) => ({
+        label: name,
+        desc: `${count} Locations`,
+        href: `/neighborhoods/${name.toLowerCase().replace(/\s+/g, '-')}/`
+    }));
+
+// 2. Count Stats for Infrastructure
+const powerHeavyCount = spots.filter(s => s.data.metrics.plug_access).length;
+// Assuming we don't have explicit 'long haul' or 'emergency' flags in current schema, we'll use placeholder or derived logic if possible.
+// For now, we'll stick to the count we have or generic descriptions if data is missing.
+
+// 3. Count Stats for Acoustics
+const silenceCount = spots.filter(s => s.data.metrics.noise_level === 'silence').length;
+const humCount = spots.filter(s => s.data.metrics.noise_level === 'hum').length;
+const callFriendlyCount = spots.filter(s => s.data.metrics.noise_level === 'chaos' || s.data.metrics.wifi_speed === 'flynet').length; // Loose proxy
+
+const stacks = [
+  {
+    title: "The Infrastructure",
+    subtitle: "(Power)",
+    seo: "POWER_GRID",
+    items: [
+      { label: "1:1 Outlet Ratio", desc: `${powerHeavyCount} verified spots with plugs.`, href: "/lists/power-heavy/" },
+      { label: "The Long Haul", desc: "4+ hour sessions allowed.", href: "/lists/long-duration/" },
+      { label: "Emergency Charging", desc: "Near transit hubs.", href: "/lists/quick-charge/" }
+    ]
+  },
+  {
+    title: "The Acoustics",
+    subtitle: "(Noise)",
+    seo: "SOUND_TIERS",
+    items: [
+      { label: "Tier 1: Absolute Silence", desc: `${silenceCount} libraries & quiet zones.`, href: "/lists/silence/" },
+      { label: "Tier 2: The Golden Hum", desc: `${humCount} spots with white noise.`, href: "/lists/ambient/" },
+      { label: "Active Zones", desc: `${callFriendlyCount} spots for calls/meetings.`, href: "/lists/calls-allowed/" }
+    ]
+  },
+  {
+    title: "The Territories",
+    subtitle: "(Neighborhoods)",
+    seo: "ZONE_INDEX",
+    items: topNeighborhoods
+  }
+];
+---
+<section class="py-24 px-4 lg:px-6 bg-bg-main border-b-2 border-dotted border-line">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+        {stacks.map((stack) => (
+            <div class="space-y-8">
+                <header class="border-b-2 border-line-heavy pb-6">
+                    <div class="font-display text-3xl font-bold">
+                        {stack.title} <span class="block text-text-main/40 font-normal text-xl mt-1">{stack.subtitle}</span>
+                    </div>
+                </header>
+                
+                <ul class="space-y-8">
+                    {stack.items.map((item) => (
+                        <li class="group">
+                            <a href={item.href} class="block group-hover:translate-x-2 transition-transform duration-300 ease-mechanical">
+                                <span class="inline-block font-body font-bold text-xl text-text-main group-hover:text-action transition-colors border-b border-transparent group-hover:border-action">
+                                    {item.label}
+                                </span>
+                                <span class="block text-sm text-text-main/60 mt-2 leading-relaxed max-w-xs group-hover:text-text-main transition-colors">
+                                    {item.desc}
+                                </span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))}
+    </div>
+</section>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  id: string;
+  checked?: boolean;
+}
+
+const { label, name, id, checked = false } = Astro.props;
+---
+
+<label for={id} class="group flex items-center gap-3 cursor-pointer select-none">
+  <span class="font-display text-sm uppercase tracking-wider text-text-main">
+    {label}
+  </span>
+  <div class="relative">
+    <input 
+      type="checkbox" 
+      id={id} 
+      name={name} 
+      class="peer sr-only" 
+      checked={checked}
+    />
+    <!-- Track -->
+    <div class="h-6 w-11 bg-bg-main border border-line-heavy transition-colors peer-checked:bg-action duration-100 ease-linear rounded-xs"></div>
+    <!-- Thumb (Breaker) -->
+    <div class="absolute top-[2px] left-[2px] h-5 w-5 bg-text-main transition-transform peer-checked:translate-x-5 shadow-sm duration-100 ease-linear rounded-xs"></div>
+    
+    <!-- Focus ring helper (since input is hidden) -->
+    <div class="absolute inset-0 pointer-events-none peer-focus-visible:outline-2 peer-focus-visible:outline-dashed peer-focus-visible:outline-text-main peer-focus-visible:outline-offset-2"></div>
+  </div>
+</label>
