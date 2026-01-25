@@ -175,6 +175,9 @@ const schema = {
                 <Image 
                   src={coverImage.image} 
                   alt={coverImage.alt || `${data.title} Cover`}
+                  format="webp"
+                  quality={80}
+                  width={1200}
                   class="w-full aspect-video object-cover border border-ink grayscale group-hover:grayscale-0 transition-all duration-300 rounded-sm"
                 />
               </a>
@@ -195,6 +198,9 @@ const schema = {
                   <Image 
                     src={img} 
                     alt={alt}
+                    format="webp"
+                    quality={80}
+                    width={1200}
                     class="w-full aspect-video object-cover border border-ink grayscale group-hover:grayscale-0 transition-all duration-300 rounded-sm"
                   />
                 </a>

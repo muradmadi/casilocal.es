@@ -28,6 +28,9 @@ const coverImage = data.coverImage || null;
       <Image 
         src={coverImage.image} 
         alt={coverImage.alt || data.title}
+        format="webp"
+        quality={80}
+        width={600}
         class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-mechanical"
       />
     ) : (
