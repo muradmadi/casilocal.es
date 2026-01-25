@@ -3,7 +3,7 @@ import { getCollection, render, getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import SpotSidebar from '../../components/SpotSidebar.astro';
 import SpotCard from '../../components/SpotCard.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 export async function getStaticPaths() {
   const spots = await getCollection('spots');
@@ -16,6 +16,21 @@ export async function getStaticPaths() {
 const { spot, allSpots } = Astro.props;
 const { data, id } = spot;
 const { Content } = await render(spot);
+
+// Create optimized OG Image (1200x630)
+const coverImage = data.coverImage || null;
+let ogImageSrc = undefined;
+
+if (coverImage?.image) {
+  const optimizedOg = await getImage({
+    src: coverImage.image,
+    format: 'jpg',
+    width: 1200,
+    height: 630,
+    quality: 80
+  });
+  ogImageSrc = optimizedOg.src;
+}
 
 // Get nearby alternatives (same neighborhood, different spot)
 const nearbySpots = allSpots
@@ -40,7 +55,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness", // or CafeOrCoffeeShop if discernible, usually LocalBusiness is safe
   "name": data.title,
-  "image": coverImage?.image?.src ? new URL(coverImage.image.src, Astro.site).toString() : undefined,
+  "image": ogImageSrc ? new URL(ogImageSrc, Astro.site).toString() : undefined,
   "address": !isAddressUrl ? data.address : undefined, // Don't put URL in address field of schema
   "geo": {
     "@type": "GeoCoordinates",
@@ -83,7 +98,7 @@ const schema = {
 };
 ---
 
-<Layout title={title} description={description} image={coverImage?.image?.src} type="article" schema={schema}>
+<Layout title={title} description={description} image={ogImageSrc} type="article" schema={schema}>
   
   <!-- ZONE A: Title Block (Full Width) -->
   <header class="border-b border-ink px-6 py-8 lg:px-12 lg:py-12 bg-bg-main relative">

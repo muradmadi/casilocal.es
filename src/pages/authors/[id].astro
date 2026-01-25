@@ -28,7 +28,12 @@ const schema = {
 };
 ---
 
-<Layout title={`${author.data.name} | CasiLocal`} description={`Profile of ${author.data.name}, ${author.data.role} at CasiLocal.`} schema={schema}>
+<Layout 
+    title={`${author.data.name} | CasiLocal`} 
+    description={`Profile of ${author.data.name}, ${author.data.role} at CasiLocal.`} 
+    schema={schema}
+    image={author.data.avatar.src}
+>
     <section class="min-h-[80vh] flex flex-col items-center justify-center py-24 px-4 bg-bg-main relative overflow-hidden">
          <!-- Background Grid -->
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] mask-gradient pointer-events-none"></div>
