@@ -47,8 +47,7 @@ const description = `Review of ${data.title} in ${data.neighborhood}. Wifi: ${da
 const isAddressUrl = data.address?.startsWith('http');
 const mapsUrl = isAddressUrl ? data.address : `https://www.google.com/maps/dir/?api=1&destination=${data.metrics.coordinates.lat},${data.metrics.coordinates.long}`;
 
-// coverImage is always an object with image/alt/source when defined
-const coverImage = data.coverImage || null;
+// coverImage is already defined above at line 21
 
 // JSON-LD Schema Construction
 const schema = {
