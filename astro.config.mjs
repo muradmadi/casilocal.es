@@ -42,7 +42,8 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/design-system') &&
         !page.includes('/submit/success') &&
-        !page.includes('/keystatic'),
+        !page.includes('/keystatic') &&
+        !page.includes('/_astro/'),
     }),
     keystatic(),
   ],
