@@ -167,8 +167,8 @@
     --cc-btn-primary-hover-bg: var(--color-ember);
     --cc-btn-secondary-bg: transparent;
     --cc-btn-secondary-text: var(--color-ink);
-    --cc-btn-secondary-hover-bg: var(--color-ink);
     --cc-btn-secondary-hover-text: var(--color-paper);
+    --cc-btn-secondary-hover-bg: var(--color-ink);
     --cc-cookie-category-block-bg: color-mix(in oklch, var(--color-ink), transparent 95%);
     --cc-cookie-category-block-bg-hover: color-mix(in oklch, var(--color-ink), transparent 90%);
     --cc-font-family: var(--font-body);
@@ -202,6 +202,7 @@
 #cc-main .cm__btn:hover {
     box-shadow: none;
     transform: translate(2px, 2px);
+    color: var(--cc-btn-secondary-hover-text) !important;
 }
 
 #cc-main .cm__title {
