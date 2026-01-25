@@ -58,6 +58,15 @@ import Footer from '../components/Footer.astro';
 
         <!-- JSON-LD Schema -->
         {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+        <!-- Ahrefs Analytics -->
+        <script 
+            type="text/plain" 
+            data-category="analytics" 
+            src="https://analytics.ahrefs.com/analytics.js" 
+            data-key="HV2kKI+2PHOXED9WDhkJxw" 
+            async 
+        ></script>
 	</head>
 	<body>
         <Masthead />
