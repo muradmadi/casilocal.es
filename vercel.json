@@ -1,11 +1,20 @@
 {
   "headers": [
     {
+      "source": "/keystatic(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.ahrefs.com https://*.vercel-scripts.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.githubusercontent.com https://avatars.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://analytics.ahrefs.com https://*.vercel-scripts.com https://api.github.com;"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.ahrefs.com https://*.vercel-scripts.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.githubusercontent.com https://avatars.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://analytics.ahrefs.com https://*.vercel-scripts.com https://api.github.com; frame-ancestors 'self';"
+          "value": "default-src 'self'; script-src 'self' https://analytics.ahrefs.com https://*.vercel-scripts.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.githubusercontent.com https://avatars.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://analytics.ahrefs.com https://*.vercel-scripts.com https://api.github.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self';"
         },
         {
           "key": "Referrer-Policy",
