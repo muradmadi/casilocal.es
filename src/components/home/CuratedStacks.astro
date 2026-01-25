@@ -16,7 +16,7 @@ const topNeighborhoods = Object.entries(neighborhoodCounts)
     .map(([name, count]) => ({
         label: name,
         desc: `${count} Locations`,
-        href: `/neighborhoods/${name.toLowerCase().replace(/\s+/g, '-')}/`
+        href: `/spots/?neighborhood=${name}`
     }));
 ---
 <section class="py-24 px-4 lg:px-6 bg-bg-main border-b-2 border-dotted border-line">
