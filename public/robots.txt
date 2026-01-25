@@ -4,4 +4,4 @@ Disallow: /keystatic/
 Disallow: /design-system
 Disallow: /submit/success
 
-Sitemap: https://casilocal.es/sitemap-index.xml
+Sitemap: https://www.casilocal.es/sitemap-index.xml

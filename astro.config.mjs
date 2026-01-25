@@ -11,7 +11,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://casilocal.es',
+  site: 'https://www.casilocal.es',
 
   // Reverting to default 'ignore' which is most stable for Keystatic
   trailingSlash: 'ignore',
