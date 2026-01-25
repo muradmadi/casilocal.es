@@ -23,7 +23,7 @@ export default defineConfig({
     }
   },
 
-  output: 'static',
+  output: 'hybrid',
   integrations: [react(), mdx(), sitemap(), keystatic()],
   adapter: vercel(),
 });
