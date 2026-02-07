@@ -32,9 +32,9 @@ if (coverImage?.image) {
   ogImageSrc = optimizedOg.src;
 }
 
-// Get nearby alternatives (same neighborhood, different spot)
+// Get nearby alternatives (same neighborhood, different spot, must have image)
 const nearbySpots = allSpots
-  .filter(s => s.data.neighborhood === data.neighborhood && s.id !== id)
+  .filter(s => s.data.neighborhood === data.neighborhood && s.id !== id && !!s.data.coverImage?.image)
   .slice(0, 2);
 
 // Get author if specified

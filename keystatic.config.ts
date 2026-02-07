@@ -27,7 +27,6 @@ export default config({
                 coverImage: fields.object({
                     image: fields.image({
                         label: 'Cover Image (3:2)',
-                        publicPath: './',
                     }),
                     alt: fields.text({ label: 'Alt Text (Optional)' }),
                     source: fields.text({ label: 'Source URL (Optional)' }),
@@ -36,7 +35,6 @@ export default config({
                     fields.object({
                         image: fields.image({
                             label: 'Evidence Photo',
-                            publicPath: './',
                         }),
                         alt: fields.text({ label: 'Alt Text (Optional)' }),
                         source: fields.text({ label: 'Source URL (Optional)' }),
