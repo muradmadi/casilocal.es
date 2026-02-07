@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/:path((?!keystatic).*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
