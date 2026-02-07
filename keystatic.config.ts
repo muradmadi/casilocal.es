@@ -1,14 +1,14 @@
 import { config, fields, collection } from '@keystatic/core';
 
 export default config({
+    // Use Keystatic Cloud for production (handles GitHub OAuth automatically)
+    // Replace 'TEAM/PROJECT' with your actual Keystatic Cloud project
     storage: process.env.NODE_ENV === 'production'
-        ? {
-            kind: 'github',
-            repo: 'muradmadi/casilocal.es',
-        }
-        : {
-            kind: 'local',
-        },
+        ? { kind: 'cloud' }
+        : { kind: 'local' },
+    cloud: {
+        project: 'casi-local/casilocal',
+    },
     collections: {
         spots: collection({
             label: 'Spots',
